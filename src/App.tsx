@@ -3,32 +3,40 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+import { ColorSwatch } from "./components/tokens/ColorSwatch";
 
+const colorTokens = {
+  primary: "#5FD3E9",
+  primaryDark: "#00BBD6",
+  primaryContrast: "#0F172A",
+  danger: "#FF4E9B",
+  secondary: "#008891",
+  backgroundLight: "#F5F9FA",
+  backgroundDark: "#1F2933",
+  textLight: "#0F172A",
+  textDark: "#FFFFFF",
+  neutral100: "#FFFFFF",
+  neutral900: "#0F172A",
+};
+
+const ColorTokens = () => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem", padding: "2rem" }}>
+      {Object.entries(colorTokens).map(([name, hex]) => (
+        <ColorSwatch
+          key={name}
+          name={name}
+          hex={hex}
+          textColor={name.includes("background") || hex === "#FFFFFF" ? "#0F172A" : "#FFFFFF"}
+        />
+      ))}
+    </div>
+  );
+};
+
+function App() {
+  return (
+    <ColorTokens />
   )
 }
 
