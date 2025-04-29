@@ -22,4 +22,3 @@ export const typography = {
       relaxed: 1.75,
     },
   };
-  

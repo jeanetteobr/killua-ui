@@ -46,4 +46,4 @@ export const colors = {
       ring: "#00A9C5",
     },
   },
-};
+}; 

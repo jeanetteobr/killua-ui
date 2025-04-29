@@ -1,7 +1,7 @@
-import { ColorSwatch } from "../components/tokens/ColorSwatch";
-import { colors } from "../tokens/colors";
-import { useWhiteTextAlways } from "../utils/colorHelpers";
-type FlatColorMap = { name: string; hex: string };
+import { ColorSwatch } from "@/tokens/ColorSwatch";
+import { colors } from "@/tokens/colors";
+import { useWhiteTextAlways } from "@/utils/colorHelpers";
+import type { FlatColorMap } from "./ColorTokens.types";
 
 const swatchGroup = (
   title: string,

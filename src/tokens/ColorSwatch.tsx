@@ -1,6 +1,6 @@
 import React from "react";
 import tinycolor from "tinycolor2";
-import { useWhiteTextAlways } from "../../utils/colorHelpers";
+import { useWhiteTextAlways } from "@/utils/colorHelpers";
 
 type SwatchProps = {
   name: string;

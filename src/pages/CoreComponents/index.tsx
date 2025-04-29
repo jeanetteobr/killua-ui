@@ -1,15 +1,6 @@
-import { Button } from "../components/core/Button";
-
-const variants = [
-  "primary",
-  "secondary",
-  "ghost",
-  "danger",
-  "success",
-  "warning",
-  "info",
-  "link",
-] as const;
+import React from "react";
+import { Button } from "@/components/core/Button";
+import { variants } from "./CoreComponents.types";
 
 export const CoreComponents: React.FC = () => {
   return (
