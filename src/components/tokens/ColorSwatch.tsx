@@ -4,6 +4,7 @@ import tinycolor from "tinycolor2";
 type SwatchProps = {
   name: string;
   hex: string;
+  textColor?: string;
 };
 
 export const ColorSwatch: React.FC<SwatchProps> = ({ name, hex }) => {
