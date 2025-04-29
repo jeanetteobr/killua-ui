@@ -1,13 +1,12 @@
 export const colors = {
-  // --- CORE SEMANTICS ---
-  primary: "#00BBD6",     // Electric cyan
-  link: "#5FD3E9",        // Lighter cyan for inline use
-  info: "#486581",        // Slate blue (cold & calm)
-  success: "#3CB371",     // Gon green – muted medium success
-  warning: "#F4C430",     // Goldenrod yellow (avoid harsh orange)
-  danger: "#FF4E9B",      // Hot pink danger – uniquely Killua
+  // --- DEFAULT THEME (DARK MODE) ---
+  primary: "#8B5CF6",
+  link: "#BFA3FF",
+  info: "#64748B",
+  success: "#4ADE80",
+  warning: "#FACC15",
+  danger: "#FF4E9B",
 
-  // --- BACKGROUND + TEXT ---
   background: {
     base: "#100418",
     surface: "#1B0E2A",
@@ -16,26 +15,35 @@ export const colors = {
   text: {
     primary: "#FFFFFF",
     secondary: "#E0D7FF",
-    inverted: "#0F172A",
+    onSolid: "#FFFFFF",
   },
 
-  // --- DARK THEME TWEAKS ---
-  dark: {
-    primary: "#8B5CF6",          // Violet glow for action in dark mode
-    link: "#BFA3FF",             // Lavender inline links
-    info: "#64748B",             // Text-muted gray
-    success: "#4ADE80",          // Lighter green for visibility in dark mode
-    warning: "#FACC15",          // Soft yellow
-    danger: "#FF4E9B",           // Consistent pink danger
-    background: "#100418",
-    surface: "#1B0E2A",
-    textPrimary: "#FFFFFF",
-    textSecondary: "#E0D7FF",
-  },
-
-  // --- FOCUS RINGS ---
   focus: {
-    light: "#3ABDD9",  // Aqua
-    dark: "#8B5CF6",   // Violet
+    ring: "#8B5CF6",
+  },
+
+  // --- LIGHT MODE OVERRIDES ---
+  light: {
+    primary: "#00A9C5",
+    link: "#3FC2E6",
+    info: "#4A5D78",
+    success: "#2FA36B",
+    warning: "#E8B300",
+    danger: "#E0358A",
+
+    background: {
+      base: "#F5F9FA",
+      surface: "#FFFFFF",
+    },
+
+    text: {
+      primary: "#0F172A",
+      secondary: "#475569",
+      onSolid: "#FFFFFF",
+    },
+
+    focus: {
+      ring: "#00A9C5",
+    },
   },
 };

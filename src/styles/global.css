@@ -12,6 +12,7 @@ html, body {
   background-color: var(--background-base);
   color: var(--text-primary);
   transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
 }
 
 /* =======================
@@ -33,39 +34,61 @@ html, body {
   /* Text */
   --text-primary: #FFFFFF;
   --text-secondary: #E0D7FF;
-  --text-inverted: #0F172A;
+  --text-on-solid: #FFFFFF;
 
   /* Focus */
   --focus-ring: #8B5CF6;
 
-  /* Borders, shadows, radius (optional extensions) */
+  /* Border Radius */
+  --radius-sm: 4px;
   --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* Elevation / Shadows */
   --elevation-sm: 0 1px 4px rgba(0, 0, 0, 0.2);
+  --elevation-md: 0 2px 8px rgba(0, 0, 0, 0.25);
 
   /* Spacing */
+  --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
   --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+
+  /* Typography */
+  --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+
+  --font-weight-regular: 400;
   --font-weight-medium: 500;
+  --font-weight-bold: 700;
 }
 
 /* =======================
-   LIGHT MODE OVERRIDE
+   LIGHT MODE OVERRIDES
 ========================== */
 .light-theme {
+  /* Backgrounds */
   --background-base: #F5F9FA;
   --background-surface: #FFFFFF;
 
-  --color-primary: #00BBD6;
-  --color-link: #5FD3E9;
-  --color-info: #486581;
-  --color-success: #3CB371;
-  --color-warning: #F4C430;
-  --color-danger: #FF4E9B;
+  /* Core Colors */
+  --color-primary: #00A9C5;
+  --color-link: #3FC2E6;
+  --color-info: #4A5D78;
+  --color-success: #2FA36B;
+  --color-warning: #E8B300;
+  --color-danger: #E0358A;
 
+  /* Text */
   --text-primary: #0F172A;
-  --text-secondary: #64748B;
-  --text-inverted: #FFFFFF;
+  --text-secondary: #475569;
+  --text-on-solid: #FFFFFF;
 
-  --focus-ring: #3ABDD9;
+  /* Focus */
+  --focus-ring: #00A9C5;
 }

@@ -13,15 +13,35 @@ const variants = [
 
 export const CoreComponents: React.FC = () => {
   return (
-    <main style={{ padding: "2rem" }}>
-      <h1 style={{ fontSize: "1.5rem", marginBottom: "1.5rem" }}>Core Components</h1>
+    <main style={{ padding: "var(--spacing-lg)" }}>
+      <h1
+        style={{
+          fontSize: "var(--font-size-xl)",
+          fontWeight: "var(--font-weight-bold)",
+          marginBottom: "var(--spacing-xl)",
+        }}
+      >
+        🧩 Core Components
+      </h1>
 
-
-      <section className="dark-theme" style={{ marginBottom: "3rem",backgroundColor: "var(--background-base)" }}>
-        <h2 style={{ fontSize: "1.25rem", marginBottom: "1rem", color: "var(--text-primary)" }}>
-          Button Variants (Dark)
+      <section
+        style={{
+          backgroundColor: "var(--background-surface)",
+          padding: "var(--spacing-lg)",
+          borderRadius: "var(--radius-lg)",
+          marginBottom: "var(--spacing-xl)",
+        }}
+      >
+        <h2
+          style={{
+            fontSize: "var(--font-size-lg)",
+            marginBottom: "var(--spacing-md)",
+            color: "var(--text-primary)",
+          }}
+        >
+          Buttons – Dark Mode (Default)
         </h2>
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--spacing-md)" }}>
           {variants.map((variant) => (
             <Button key={variant} variant={variant}>
               {variant.charAt(0).toUpperCase() + variant.slice(1)}
@@ -36,9 +56,24 @@ export const CoreComponents: React.FC = () => {
         </div>
       </section>
 
-      <section style={{  padding: "2rem", borderRadius: "12px", }} className="light-theme">
-        <h2 style={{ fontSize: "1.25rem", marginBottom: "1rem" }}>Button Variants (Light)</h2>
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
+      <section
+        className="light-theme"
+        style={{
+          backgroundColor: "var(--background-surface)",
+          padding: "var(--spacing-lg)",
+          borderRadius: "var(--radius-lg)",
+        }}
+      >
+        <h2
+          style={{
+            fontSize: "var(--font-size-lg)",
+            marginBottom: "var(--spacing-md)",
+            color: "var(--text-primary)",
+          }}
+        >
+          Buttons – Light Mode
+        </h2>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--spacing-md)" }}>
           {variants.map((variant) => (
             <Button key={variant} variant={variant}>
               {variant.charAt(0).toUpperCase() + variant.slice(1)}
