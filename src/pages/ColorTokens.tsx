@@ -17,7 +17,7 @@ export const ColorTokens: React.FC = () => {
 
   return (
     <main style={{ padding: "2rem" }}>
-      <h1 style={{ fontSize: "1.5rem", marginBottom: "1rem" }}>🎨 Color Tokens</h1>
+      <h1 style={{ fontSize: "1.5rem", marginBottom: "1rem" }}>Color Tokens</h1>
       <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
         {colorList.map(({ name, hex }) => (
           <ColorSwatch

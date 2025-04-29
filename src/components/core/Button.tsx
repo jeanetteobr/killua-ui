@@ -2,38 +2,60 @@ import React from "react";
 
 type ButtonProps = {
   children: React.ReactNode;
-  variant?: "primary" | "secondary" | "ghost" | "danger";
+  variant?: "primary" | "secondary" | "link" | "success" | "info" | "warning" | "danger" | "ghost";
   disabled?: boolean;
   loading?: boolean;
   fullWidth?: boolean;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 const variantStyles = {
-  primary: {
-    backgroundColor: "var(--color-primary)",
-    color: "var(--color-text)",
-    border: "none",
-  },
-  secondary: {
-    backgroundColor: "var(--color-bg)",
-    color: "var(--color-text)",
-    border: "1px solid var(--color-primary)",
-  },
-  ghost: {
-    backgroundColor: "transparent",
-    color: "var(--color-text)",
-    border: "none",
-  },
-  danger: {
-    backgroundColor: "var(--color-danger)",
-    color: "#ffffff",
-    border: "none",
-  },
-};
-
+    primary: {
+      backgroundColor: "var(--color-primary)",
+      color: "var(--text-inverted)",
+      border: "none",
+    },
+    secondary: {
+      backgroundColor: "var(--color-info)",
+      color: "var(--text-primary)",
+      border: "none",
+    },
+    link: {
+      backgroundColor: "transparent",
+      color: "var(--color-link)",
+      textDecoration: "underline",
+      border: "none",
+    },
+    success: {
+      backgroundColor: "var(--color-success)",
+      color: "var(--text-inverted)",
+      border: "none",
+    },
+    info: {
+      backgroundColor: "var(--color-info)",
+      color: "var(--text-inverted)",
+      border: "none",
+    },
+    warning: {
+      backgroundColor: "var(--color-warning)",
+      color: "var(--text-inverted)",
+      border: "none",
+    },
+    danger: {
+      backgroundColor: "var(--color-danger)",
+      color: "var(--text-inverted)",
+      border: "none",
+    },
+    ghost: {
+      backgroundColor: "transparent",
+      color: "var(--text-primary)",
+      border: "none",
+    },
+  };
+  
+  
 export const Button: React.FC<ButtonProps> = ({
   children,
-  variant = "primary",
+  variant = "secondary",
   disabled = false,
   loading = false,
   fullWidth = false,

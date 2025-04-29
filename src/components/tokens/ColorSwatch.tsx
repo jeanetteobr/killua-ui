@@ -8,7 +8,7 @@ type SwatchProps = {
 };
 
 export const ColorSwatch: React.FC<SwatchProps> = ({ name, hex }) => {
-  const isLight = name.includes("danger") ? false : tinycolor(hex).isLight();
+  const isLight = tinycolor(hex).isLight();
   const textColor = isLight ? "#0F172A" : "#FFFFFF";
 
   return (
