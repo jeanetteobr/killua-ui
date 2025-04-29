@@ -1,30 +1,33 @@
 import { ColorSwatch } from "../components/tokens/ColorSwatch";
+import { colors } from "../tokens/colors";
 
-const colorTokens = {
-  primary: "#5FD3E9",
-  primaryDark: "#00BBD6",
-  primaryContrast: "#0F172A",
-  danger: "#FF4E9B",
-  secondary: "#008891",
-  backgroundLight: "#F5F9FA",
-  backgroundDark: "#1F2933",
-  textLight: "#0F172A",
-  textDark: "#FFFFFF",
-  neutral100: "#FFFFFF",
-  neutral900: "#0F172A",
+type FlatColorMap = { name: string; hex: string };
+
+const flattenColors = (obj: Record<string, any>, prefix = ""): FlatColorMap[] => {
+  return Object.entries(obj).flatMap(([key, value]) => {
+    const name = prefix ? `${prefix}.${key}` : key;
+    return typeof value === "string"
+      ? [{ name, hex: value }]
+      : flattenColors(value, name);
+  });
 };
 
-export const ColorTokens = () => {
+export const ColorTokens: React.FC = () => {
+  const colorList = flattenColors(colors);
+
   return (
-    <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem", padding: "2rem" }}>
-      {Object.entries(colorTokens).map(([name, hex]) => (
-        <ColorSwatch
-          key={name}
-          name={name}
-          hex={hex}
-          textColor={name.includes("background") || hex === "#FFFFFF" ? "#0F172A" : "#FFFFFF"}
-        />
-      ))}
-    </div>
+    <main style={{ padding: "2rem" }}>
+      <h1 style={{ fontSize: "1.5rem", marginBottom: "1rem" }}>🎨 Color Tokens</h1>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
+        {colorList.map(({ name, hex }) => (
+          <ColorSwatch
+            key={name}
+            name={name}
+            hex={hex}
+            textColor={name.includes("background") || hex === "#FFFFFF" ? "#0F172A" : "#FFFFFF"}
+          />
+        ))}
+      </div>
+    </main>
   );
 };
