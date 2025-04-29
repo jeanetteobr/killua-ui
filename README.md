@@ -1,54 +1,68 @@
-# React + TypeScript + Vite
+# 🪀 Killua UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Killua UI** is a lightweight, modular design system inspired by the one and only Killua Zoldyck from *Hunter x Hunter*. It’s built for speed, precision, accessibility, and elegance—just like its namesake.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🎯 Project Goals
 
-## Expanding the ESLint configuration
+- **Lightweight & Modular**: Build only what you need
+- **Thematic & Accessible**: Killua-inspired palette, WCAG-compliant design
+- **Composable Components**: Built with scalability and reusability in mind
+- **Framework Friendly**: Designed with React, but exportable for other use cases
+- **Documented & Extensible**: Easy to use, easy to contribute
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+--- 
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🚀 Getting Started
+
+### 1. Clone the repo
+
+```bash
+git clone git@github.com:jeanetteobr/killua-ui.git
+cd killua-ui
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+### 2. Install dependencies
+```bash
+npm install
 ```
+
+### 3. Start the dev server
+```bash
+npm run dev
+```
+
+---
+
+## 🧪 Tokens in Progress
+- [x] Colors
+- [ ] Spacing
+- [ ] Typography
+- [ ] Border Radius
+- [ ] Elevation
+- [ ] Breakpoints
+
+---
+
+## 🧩 Components in Progress
+- [x] ColorSwatch
+- [ ] Button
+- [ ] Input
+- [ ] Card
+- [ ] Modal 
+...and more coming soon!
+
+---
+
+## 💬 Want to Contribute?
+Coming soon: contribution guide & dev setup instructions.
+
+---
+
+📄 License
+MIT – Use it, fork it, remix it. Just don’t be shady.
+
+---
+
+## ⚡️👩🏾‍💻 Created by [@jeanetteobr](htttps://www.github.com/jeanetteobr)
