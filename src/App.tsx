@@ -13,7 +13,7 @@ import { MoonIcon } from "@/components/icons/MoonIcon";
 import { SystemIcon } from "@/components/icons/SystemIcon";
 
 function ThemeToggle() {
-  const { theme, resolvedTheme, toggleTheme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
   let icon = <MoonIcon />;
   if (theme === "system") icon = <SystemIcon />;
   else if (theme === "light") icon = <SunIcon />;
