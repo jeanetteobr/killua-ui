@@ -16,9 +16,7 @@ interface ColorTheme {
     secondary: string;
     button: string;
   };
-  focus: {
-    ring: string;
-  };
+
 }
 
 export interface Colors extends ColorTheme {
@@ -45,9 +43,6 @@ export const colors: Colors = {
     button: "#1E293B",
   },
 
-  focus: {
-    ring: "#A855F7",
-  },
 
   // --- LIGHT MODE OVERRIDES ---
   light: {
@@ -69,8 +64,5 @@ export const colors: Colors = {
       button: "#1E293B",
     },
 
-    focus: {
-      ring: "#0369A1",
-    },
   },
 }; 

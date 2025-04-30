@@ -53,7 +53,6 @@ export const ColorTokens: React.FC = () => {
     { name: "text.primary", hex: colors.text.primary },
     { name: "text.secondary", hex: colors.text.secondary },
     { name: "text.button", hex: colors.text.button },
-    { name: "focus.ring", hex: colors.focus.ring },
   ];
 
   // ☀️ Light theme overrides
@@ -69,16 +68,11 @@ export const ColorTokens: React.FC = () => {
     { name: "light.text.primary", hex: colors.light.text.primary },
     { name: "light.text.secondary", hex: colors.light.text.secondary },
     { name: "light.text.button", hex: colors.light.text.button },
-    { name: "light.focus.ring", hex: colors.light.focus.ring },
   ];
 
   return (
     <main style={{ padding: "var(--spacing-lg)" }}>
-      <h1 style={{
-        fontSize: "var(--font-size-xl)",
-        fontWeight: "var(--font-weight-bold)",
-        marginBottom: "var(--spacing-xl)"
-      }}>
+      <h1>
         🎨 Color Tokens
       </h1>
 
@@ -86,11 +80,6 @@ export const ColorTokens: React.FC = () => {
 
       <section
         className="light-theme"
-        style={{
-          backgroundColor: "var(--background-base)",
-          padding: "var(--spacing-lg)",
-          borderRadius: "var(--radius-lg)",
-        }}
       >
         {swatchGroup("☀️ Light Theme Overrides", lightTheme)}
       </section>
