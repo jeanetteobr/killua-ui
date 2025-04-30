@@ -5,18 +5,17 @@
 - [x] Design tokens system
 - [x] Core components (Button, ColorSwatch)
 - [x] Documentation and examples
-- [ ] Basic theming support
+- [x] Basic theming support
   - [x] Dark/light theme tokens
   - [x] CSS variables
-  - [ ] Theme switching mechanism
-  - [ ] Theme persistence
-  - [ ] System theme detection
+  - [x] Theme switching mechanism
+  - [x] System theme detection
 - [ ] Basic accessibility
+  - [x] Color contrast compliance
   - [x] ESLint accessibility rules
   - [x] Basic ARIA attributes (aria-busy)
   - [x] Keyboard navigation
   - [x] Focus management
-  - [ ] Color contrast compliance
   - [ ] Screen reader support
 
 ## Phase 2: Core Components
