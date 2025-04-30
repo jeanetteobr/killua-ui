@@ -26,10 +26,11 @@ html, body {
   /* Core Colors */
   --color-primary: #8B5CF6;
   --color-link: #BFA3FF;
-  --color-info: #64748B;
+  --color-info: #60AFFF;
   --color-success: #4ADE80;
   --color-warning: #FACC15;
   --color-danger: #FF4E9B;
+  --color-secondary: #64748B;
 
   /* Text */
   --text-primary: #FFFFFF;
@@ -38,7 +39,7 @@ html, body {
 
   /* Focus Rings - using semantic colors with opacity */
   --focus-ring-primary: color-mix(in srgb, var(--color-primary) 65%, transparent);
-  --focus-ring-secondary: color-mix(in srgb, var(--color-info) 65%, transparent);
+  --focus-ring-secondary: color-mix(in srgb, var(--color-secondary) 65%, transparent);
   --focus-ring-ghost: color-mix(in srgb, var(--text-primary) 65%, transparent);
   --focus-ring-danger: color-mix(in srgb, var(--color-danger) 65%, transparent);
   --focus-ring-success: color-mix(in srgb, var(--color-success) 65%, transparent);
@@ -86,10 +87,11 @@ html, body {
   /* Core Colors */
   --color-primary: #00A9C5;
   --color-link: #3FC2E6;
-  --color-info: #4A5D78;
+  --color-info: #38BDF8;
   --color-success: #2FA36B;
   --color-warning: #E8B300;
   --color-danger: #E0358A;
+  --color-secondary: #4A5D78;
 
   /* Text */
   --text-primary: #0F172A;
@@ -98,7 +100,7 @@ html, body {
 
   /* Focus Rings - using semantic colors with opacity */
   --focus-ring-primary: color-mix(in srgb, var(--color-primary) 65%, transparent);
-  --focus-ring-secondary: color-mix(in srgb, var(--color-info) 65%, transparent);
+  --focus-ring-secondary: color-mix(in srgb, var(--color-secondary) 65%, transparent);
   --focus-ring-ghost: color-mix(in srgb, var(--text-primary) 65%, transparent);
   --focus-ring-danger: color-mix(in srgb, var(--color-danger) 65%, transparent);
   --focus-ring-success: color-mix(in srgb, var(--color-success) 65%, transparent);
