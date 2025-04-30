@@ -1,0 +1,17 @@
+# Dependencies
+node_modules
+dist
+build
+
+# Generated files
+*.d.ts
+*.js
+*.mjs
+
+# IDE
+.vscode
+.idea
+
+# Misc
+coverage
+*.log 
