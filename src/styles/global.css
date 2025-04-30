@@ -26,7 +26,7 @@ html, body {
   /* Core Colors */
   --color-primary: #8B5CF6;
   --color-link: #BFA3FF;
-  --color-info: #60AFFF;
+  --color-info: #06B6D4;
   --color-success: #4ADE80;
   --color-warning: #FACC15;
   --color-danger: #FF4E9B;
@@ -85,12 +85,14 @@ html, body {
   --background-surface: #FFFFFF;
 
   /* Core Colors */
-  --color-primary: #00A9C5;
+  --color-primary: #06B6D4
+  ;
+  --color-info: #67E8F9
+  ;
   --color-link: #3FC2E6;
-  --color-info: #38BDF8;
-  --color-success: #2FA36B;
-  --color-warning: #E8B300;
-  --color-danger: #E0358A;
+  --color-success: #22C55E;
+  --color-warning: #FBBF24;
+  --color-danger: #BE185D;
   --color-secondary: #4A5D78;
 
   /* Text */

@@ -27,7 +27,7 @@ export const colors: Colors = {
   // --- DEFAULT THEME (DARK MODE) ---
   primary: "#7C3AED",
   link: "#BFA3FF",
-  info: "#60AFFF",
+  info: "#06B6D4", // Vibrant cyan for dark mode
   success: "#10B981",
   warning: "#EAB308",
   danger: "#DB2777",
@@ -46,9 +46,9 @@ export const colors: Colors = {
 
   // --- LIGHT MODE OVERRIDES ---
   light: {
-    primary: "#0369A1",
-    link: "#38BDF8",
-    info: "#38BDF8",
+    primary: "#06B6D4", // Vibrant cyan
+    info: "#67E8F9",    // Icy cyan
+    link: "#3FC2E6",    // Bright cyan
     success: "#22C55E",
     warning: "#FBBF24",
     danger: "#BE185D",
