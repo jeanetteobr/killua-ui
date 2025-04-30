@@ -80,29 +80,5 @@ describe('Color Contrast Tests', () => {
     });
   });
 
-  describe('Focus Rings', () => {
-    describe('Dark Mode', () => {
-      test('Focus ring on base background meets WCAG AA', () => {
-        const result = testColorContrast(colors.focus.ring, colors.background.base);
-        expect(result.meetsAA).toBe(true);
-      });
-
-      test('Focus ring on surface background meets WCAG AA', () => {
-        const result = testColorContrast(colors.focus.ring, colors.background.surface);
-        expect(result.meetsAA).toBe(true);
-      });
-    });
-
-    describe('Light Mode', () => {
-      test('Focus ring on base background meets WCAG AA', () => {
-        const result = testColorContrast(colors.light.focus.ring, colors.light.background.base);
-        expect(result.meetsAA).toBe(true);
-      });
-
-      test('Focus ring on surface background meets WCAG AA', () => {
-        const result = testColorContrast(colors.light.focus.ring, colors.light.background.surface);
-        expect(result.meetsAA).toBe(true);
-      });
-    });
-  });
+  // Focus Rings tests removed because focus.ring is no longer present in color tokens
 }); 
