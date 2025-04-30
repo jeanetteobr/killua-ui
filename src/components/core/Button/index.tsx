@@ -19,7 +19,8 @@ const variantStyles = {
     border: "none",
   },
   secondary: {
-    backgroundColor: "var(--color-info)",
+    backgroundColor: "var(--color-secondary)",
+    color: "#FFFFFF",
     border: "none",
   },
   ghost: {
@@ -80,8 +81,11 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
 }, ref) => {
   // Compute dynamic text color for solid variants
   let textColor: string | undefined = undefined;
-  if (variant !== "ghost" && variant !== "link") {
+  if (variant !== "ghost" && variant !== "link" && variant !== "secondary") {
     textColor = getDynamicTextColor(variantBgColors[variant]);
+  }
+  if (variant === "secondary") {
+    textColor = "#FFFFFF";
   }
 
   const baseStyles: React.CSSProperties = {
@@ -105,14 +109,14 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
   };
 
   const focusRingColors = {
-    primary: "var(--color-primary)",
-    secondary: "var(--color-info)",
-    ghost: "var(--text-primary)",
-    danger: "var(--color-danger)",
-    success: "var(--color-success)",
-    warning: "var(--color-warning)",
-    info: "var(--color-info)",
-    link: "var(--color-link)",
+    primary: "var(--focus-ring-primary)",
+    secondary: "var(--focus-ring-secondary)",
+    ghost: "var(--focus-ring-ghost)",
+    danger: "var(--focus-ring-danger)",
+    success: "var(--focus-ring-success)",
+    warning: "var(--focus-ring-warning)",
+    info: "var(--focus-ring-info)",
+    link: "var(--focus-ring-link)",
   };
 
   const getFocusRingStyles = (variant: ButtonVariant) => ({
