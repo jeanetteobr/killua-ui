@@ -1,6 +1,5 @@
 import { ColorSwatch } from "@/components/core/ColorSwatch";
 import { colors } from "@/tokens/colors";
-import { useWhiteTextAlways } from "@/utils/colorHelpers";
 import type { FlatColorMap } from "./ColorTokens.types";
 
 const swatchGroup = (
@@ -34,9 +33,6 @@ const swatchGroup = (
           key={name}
           name={name}
           hex={hex}
-          textColor={
-            useWhiteTextAlways(name) ? "var(--text-on-solid)" : undefined
-          }
         />
       ))}
     </div>
@@ -56,7 +52,7 @@ export const ColorTokens: React.FC = () => {
     { name: "background.surface", hex: colors.background.surface },
     { name: "text.primary", hex: colors.text.primary },
     { name: "text.secondary", hex: colors.text.secondary },
-    { name: "text.onSolid", hex: colors.text.onSolid },
+    { name: "text.button", hex: colors.text.button },
     { name: "focus.ring", hex: colors.focus.ring },
   ];
 
@@ -72,7 +68,7 @@ export const ColorTokens: React.FC = () => {
     { name: "light.background.surface", hex: colors.light.background.surface },
     { name: "light.text.primary", hex: colors.light.text.primary },
     { name: "light.text.secondary", hex: colors.light.text.secondary },
-    { name: "light.text.onSolid", hex: colors.light.text.onSolid },
+    { name: "light.text.button", hex: colors.light.text.button },
     { name: "light.focus.ring", hex: colors.light.focus.ring },
   ];
 

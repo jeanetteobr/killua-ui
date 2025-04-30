@@ -1,15 +1,25 @@
 import React, { forwardRef } from "react";
 import { ButtonProps, ButtonVariant } from "./Button.types";
+import tinycolor from "tinycolor2";
+
+const variantBgColors: Record<ButtonVariant, string> = {
+  primary: "var(--color-primary)",
+  secondary: "var(--color-info)",
+  ghost: "transparent",
+  danger: "var(--color-danger)",
+  success: "var(--color-success)",
+  warning: "var(--color-warning)",
+  info: "var(--color-info)",
+  link: "transparent",
+};
 
 const variantStyles = {
   primary: {
     backgroundColor: "var(--color-primary)",
-    color: "var(--text-on-solid)",
     border: "none",
   },
   secondary: {
     backgroundColor: "var(--color-info)",
-    color: "var(--text-on-solid)",
     border: "none",
   },
   ghost: {
@@ -19,22 +29,18 @@ const variantStyles = {
   },
   danger: {
     backgroundColor: "var(--color-danger)",
-    color: "var(--text-on-solid)",
     border: "none",
   },
   success: {
     backgroundColor: "var(--color-success)",
-    color: "var(--text-on-solid)",
     border: "none",
   },
   warning: {
     backgroundColor: "var(--color-warning)",
-    color: "var(--text-on-solid)",
     border: "none",
   },
   info: {
     backgroundColor: "var(--color-info)",
-    color: "var(--text-on-solid)",
     border: "none",
   },
   link: {
@@ -46,17 +52,22 @@ const variantStyles = {
   },
 };
 
-// Map variants to their respective focus ring colors
-const focusRingColors = {
-  primary: "var(--color-primary)",
-  secondary: "var(--color-info)",
-  ghost: "var(--text-primary)",
-  danger: "var(--color-danger)",
-  success: "var(--color-success)",
-  warning: "var(--color-warning)",
-  info: "var(--color-info)",
-  link: "var(--color-link)",
-};
+// Helper to get the computed color value from CSS variable
+function getCssVarValue(varName: string): string {
+  if (typeof window === "undefined") return "#000";
+  return getComputedStyle(document.documentElement).getPropertyValue(varName.replace('var(', '').replace(')', '')).trim() || "#000";
+}
+
+function getDynamicTextColor(bg: string): string {
+  // If transparent, use primary text color
+  if (bg === "transparent") return "var(--text-primary)";
+  // If CSS var, resolve it
+  let color = bg;
+  if (bg.startsWith("var(")) {
+    color = getCssVarValue(bg);
+  }
+  return tinycolor(color).isLight() ? "#0F172A" : "#FFFFFF";
+}
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
   children,
@@ -67,8 +78,15 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
   className,
   ...props
 }, ref) => {
+  // Compute dynamic text color for solid variants
+  let textColor: string | undefined = undefined;
+  if (variant !== "ghost" && variant !== "link") {
+    textColor = getDynamicTextColor(variantBgColors[variant]);
+  }
+
   const baseStyles: React.CSSProperties = {
     ...variantStyles[variant],
+    ...(textColor ? { color: textColor } : {}),
     padding: "var(--spacing-sm) var(--spacing-md)",
     borderRadius: "var(--radius-md)",
     fontSize: "var(--font-size-sm)",
@@ -84,6 +102,17 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
     gap: "var(--spacing-xs)",
     position: "relative",
     outline: "none",
+  };
+
+  const focusRingColors = {
+    primary: "var(--color-primary)",
+    secondary: "var(--color-info)",
+    ghost: "var(--text-primary)",
+    danger: "var(--color-danger)",
+    success: "var(--color-success)",
+    warning: "var(--color-warning)",
+    info: "var(--color-info)",
+    link: "var(--color-link)",
   };
 
   const getFocusRingStyles = (variant: ButtonVariant) => ({

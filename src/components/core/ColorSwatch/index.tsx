@@ -1,17 +1,15 @@
 import React from "react";
 import tinycolor from "tinycolor2";
-import { useWhiteTextAlways } from "@/utils/colorHelpers";
 import type { SwatchProps } from "./ColorSwatch.types";
 
 export const ColorSwatch: React.FC<SwatchProps> = ({ name, hex }) => {
-  const forceWhite = useWhiteTextAlways(name);
-  const fallbackTextColor = tinycolor(hex).isLight() ? "#0F172A" : "#FFFFFF";
+  const textColor = tinycolor(hex).isLight() ? "#0F172A" : "#FFFFFF";
 
   return (
     <div
       style={{
         backgroundColor: hex,
-        color: forceWhite ? "var(--text-on-solid)" : fallbackTextColor,
+        color: textColor,
         padding: "var(--spacing-md)",
         borderRadius: "var(--radius-md)",
         width: "150px",
