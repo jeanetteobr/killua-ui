@@ -1,4 +1,4 @@
-import { ColorSwatch } from "@/tokens/ColorSwatch";
+import { ColorSwatch } from "@/components/core/ColorSwatch";
 import { colors } from "@/tokens/colors";
 import { useWhiteTextAlways } from "@/utils/colorHelpers";
 import type { FlatColorMap } from "./ColorTokens.types";
