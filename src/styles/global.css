@@ -36,8 +36,15 @@ html, body {
   --text-secondary: #E0D7FF;
   --text-on-solid: #FFFFFF;
 
-  /* Focus */
-  --focus-ring: #8B5CF6;
+  /* Focus Rings - using semantic colors with opacity */
+  --focus-ring-primary: color-mix(in srgb, var(--color-primary) 65%, transparent);
+  --focus-ring-secondary: color-mix(in srgb, var(--color-info) 65%, transparent);
+  --focus-ring-ghost: color-mix(in srgb, var(--text-primary) 65%, transparent);
+  --focus-ring-danger: color-mix(in srgb, var(--color-danger) 65%, transparent);
+  --focus-ring-success: color-mix(in srgb, var(--color-success) 65%, transparent);
+  --focus-ring-warning: color-mix(in srgb, var(--color-warning) 65%, transparent);
+  --focus-ring-info: color-mix(in srgb, var(--color-info) 65%, transparent);
+  --focus-ring-link: color-mix(in srgb, var(--color-link) 65%, transparent);
 
   /* Border Radius */
   --radius-sm: 4px;
@@ -89,6 +96,72 @@ html, body {
   --text-secondary: #475569;
   --text-on-solid: #FFFFFF;
 
-  /* Focus */
-  --focus-ring: #00A9C5;
+  /* Focus Rings - using semantic colors with opacity */
+  --focus-ring-primary: color-mix(in srgb, var(--color-primary) 65%, transparent);
+  --focus-ring-secondary: color-mix(in srgb, var(--color-info) 65%, transparent);
+  --focus-ring-ghost: color-mix(in srgb, var(--text-primary) 65%, transparent);
+  --focus-ring-danger: color-mix(in srgb, var(--color-danger) 65%, transparent);
+  --focus-ring-success: color-mix(in srgb, var(--color-success) 65%, transparent);
+  --focus-ring-warning: color-mix(in srgb, var(--color-warning) 65%, transparent);
+  --focus-ring-info: color-mix(in srgb, var(--color-info) 65%, transparent);
+  --focus-ring-link: color-mix(in srgb, var(--color-link) 65%, transparent);
+}
+
+/* Focus Ring Styles */
+.focus-ring-primary:focus-visible {
+  box-shadow: var(--elevation-sm), 0 0 0 4px var(--focus-ring-primary) !important;
+  outline: 2px solid transparent !important;
+  outline-offset: 2px !important;
+}
+
+.focus-ring-secondary:focus-visible {
+  box-shadow: var(--elevation-sm), 0 0 0 4px var(--focus-ring-secondary) !important;
+  outline: 2px solid transparent !important;
+  outline-offset: 2px !important;
+}
+
+.focus-ring-ghost:focus-visible {
+  box-shadow: var(--elevation-sm), 0 0 0 4px var(--focus-ring-ghost) !important;
+  outline: 2px solid transparent !important;
+  outline-offset: 2px !important;
+}
+
+.focus-ring-danger:focus-visible {
+  box-shadow: var(--elevation-sm), 0 0 0 4px var(--focus-ring-danger) !important;
+  outline: 2px solid transparent !important;
+  outline-offset: 2px !important;
+}
+
+.focus-ring-success:focus-visible {
+  box-shadow: var(--elevation-sm), 0 0 0 4px var(--focus-ring-success) !important;
+  outline: 2px solid transparent !important;
+  outline-offset: 2px !important;
+}
+
+.focus-ring-warning:focus-visible {
+  box-shadow: var(--elevation-sm), 0 0 0 4px var(--focus-ring-warning) !important;
+  outline: 2px solid transparent !important;
+  outline-offset: 2px !important;
+}
+
+.focus-ring-info:focus-visible {
+  box-shadow: var(--elevation-sm), 0 0 0 4px var(--focus-ring-info) !important;
+  outline: 2px solid transparent !important;
+  outline-offset: 2px !important;
+}
+
+.focus-ring-link:focus-visible {
+  box-shadow: var(--elevation-sm), 0 0 0 4px var(--focus-ring-link) !important;
+  outline: 2px solid transparent !important;
+  outline-offset: 2px !important;
+}
+
+/* Animations */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

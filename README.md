@@ -12,6 +12,8 @@
 - **Framework Friendly**: Designed with React, but exportable for other use cases
 - **Documented & Extensible**: Easy to use, easy to contribute
 
+For a detailed roadmap of upcoming features and development plans, check out our [Roadmap](ROADMAP.md).
+
 ---
 
 ## 🎨 Design Philosophy
@@ -45,6 +47,7 @@ npm run dev
 ## 🛠️ Development
 
 ### Project Structure
+
 ```
 src/
 ├── components/           # Reusable UI components
@@ -82,6 +85,7 @@ Each directory serves a specific purpose:
 - `styles/`: Global styling and theming
 
 ### Available Scripts
+
 ```bash
 # Development
 npm run dev        # Start development server
@@ -93,8 +97,8 @@ npm run lint      # Check for linting issues
 npm run lint:fix  # Fix linting issues automatically
 
 # Component Generation
-npm run generate-component ComponentName  # Generate new component
-npm run generate-page PageName           # Generate new page
+npm run generate:component ComponentName  # Generate new component
+npm run generate:page PageName           # Generate new page
 ```
 
 ### Design Tokens
@@ -127,7 +131,7 @@ We love contributions! Here's how you can help:
 ### Creating Components
 1. Use the component generator:
    ```bash
-   npm run generate-component ComponentName
+   npm run generate:component ComponentName
    ```
 2. Follow the established structure:
    - `index.tsx` for the component
