@@ -72,7 +72,12 @@ export const ColorTokens: React.FC = () => {
 
   return (
     <main style={{ padding: "var(--spacing-lg)" }}>
-      <h1>
+      <h1
+        style={{
+          fontSize: "var(--font-size-xl)",
+          fontWeight: "var(--font-weight-bold)",
+          marginBottom: "var(--spacing-xl)",
+        }}>
         🎨 Color Tokens
       </h1>
 
