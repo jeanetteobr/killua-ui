@@ -14,8 +14,8 @@
 - [ ] Basic accessibility
   - [x] ESLint accessibility rules
   - [x] Basic ARIA attributes (aria-busy)
-  - [ ] Keyboard navigation
-  - [ ] Focus management
+  - [x] Keyboard navigation
+  - [x] Focus management
   - [ ] Color contrast compliance
   - [ ] Screen reader support
 
