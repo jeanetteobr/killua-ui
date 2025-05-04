@@ -12,7 +12,14 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [theme, setTheme] = useState<Theme>("system");
+  const [theme, setTheme] = useState<Theme>(() => {
+    // Initialize theme from localStorage or default to system
+    if (typeof window !== 'undefined') {
+      const savedTheme = localStorage.getItem('theme') as Theme | null;
+      return savedTheme || 'system';
+    }
+    return 'system';
+  });
   const [resolvedTheme, setResolvedTheme] = useState<"dark" | "light">("dark");
 
   useEffect(() => {
@@ -29,6 +36,13 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       return () => mql.removeEventListener("change", listener);
     } else {
       setResolvedTheme(theme);
+    }
+  }, [theme]);
+
+  // Persist theme preference
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('theme', theme);
     }
   }, [theme]);
 
