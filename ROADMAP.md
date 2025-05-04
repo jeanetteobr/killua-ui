@@ -1,6 +1,6 @@
 # 🗺️ Killua UI Roadmap
 
-## Phase 1: Foundation (Current)
+## Phase 1: Foundation 
 - [x] Project setup and structure
 - [x] Design tokens system
 - [x] Core components (Button, ColorSwatch)
@@ -18,7 +18,7 @@
   - [x] Focus management
   - [x] Screen reader support
 
-## Phase 2: Core Components
+## Phase 2: Core Components (Current)
 - [ ] Input components
   - [ ] Text input
   - [ ] Number input
