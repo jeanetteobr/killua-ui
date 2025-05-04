@@ -1,0 +1,21 @@
+.kui-swatch {
+  color: var(--kui-swatch-text-color, #fff);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  width: 150px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--elevation-sm);
+  overflow: hidden;
+}
+.kui-swatch__name {
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+.kui-swatch__hex {
+  font-size: var(--font-size-xs);
+} 

@@ -1,18 +1,15 @@
-import React, { useState, useEffect, createContext, useContext } from "react";
-
-export type Theme = "dark" | "light" | "system";
-
-interface ThemeContextType {
-  theme: Theme;
-  resolvedTheme: "dark" | "light";
-  setTheme: (theme: Theme) => void;
-  toggleTheme: () => void;
-}
-
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+import React, { useState, useEffect, useContext } from "react";
+import { ThemeContext } from "./ThemeContext";
+import type { Theme } from "./types";
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [theme, setTheme] = useState<Theme>("system");
+  const [theme, setTheme] = useState<Theme>(() => {
+    if (typeof window !== 'undefined') {
+      const savedTheme = localStorage.getItem('theme') as Theme | null;
+      return savedTheme || 'system';
+    }
+    return 'system';
+  });
   const [resolvedTheme, setResolvedTheme] = useState<"dark" | "light">("dark");
 
   useEffect(() => {
@@ -33,11 +30,17 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   }, [theme]);
 
   useEffect(() => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('theme', theme);
+    }
+  }, [theme]);
+
+  useEffect(() => {
     document.body.classList.toggle("light-theme", resolvedTheme === "light");
   }, [resolvedTheme]);
 
   const toggleTheme = () => {
-    setTheme((t) => (t === "dark" ? "light" : t === "light" ? "system" : "dark"));
+    setTheme((t: Theme) => (t === "dark" ? "light" : t === "light" ? "system" : "dark"));
   };
 
   return (
@@ -47,6 +50,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useTheme() {
   const ctx = useContext(ThemeContext);
   if (!ctx) throw new Error("useTheme must be used within a ThemeProvider");

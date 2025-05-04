@@ -4,13 +4,14 @@ import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 import * as tseslint from '@typescript-eslint/eslint-plugin'
 import * as tsParser from '@typescript-eslint/parser'
+import jest from 'eslint-plugin-jest'
 
 export default [
   { ignores: ['dist'] },
   js.configs.recommended,
   {
     files: ['**/*.{ts,tsx}'],
-    ignores: ['vite.config.ts'],
+    ignores: ['vite.config.ts', 'vite.config.d.ts'],
     languageOptions: {
       ecmaVersion: 2020,
       globals: {
@@ -76,6 +77,46 @@ export default [
     files: ['src/App.tsx'],
     rules: {
       'react-refresh/only-export-components': 'off',
+    },
+  },
+  {
+    files: ['**/*.test.ts', '**/*.test.tsx'],
+    plugins: { jest },
+    rules: {
+      'jest/expect-expect': 'warn',
+      'jest/no-commented-out-tests': 'warn',
+      'jest/no-conditional-expect': 'error',
+      'jest/no-deprecated-functions': 'warn',
+      'jest/no-disabled-tests': 'warn',
+      'jest/no-done-callback': 'error',
+      'jest/no-duplicate-hooks': 'error',
+      'jest/no-export': 'error',
+      'jest/no-focused-tests': 'error',
+      'jest/no-identical-title': 'error',
+      'jest/no-interpolation-in-snapshots': 'error',
+      'jest/no-restricted-matchers': 'off',
+      'jest/no-standalone-expect': 'error',
+      'jest/no-test-return-statement': 'error',
+      'jest/prefer-called-with': 'warn',
+      'jest/prefer-expect-assertions': 'off',
+      'jest/prefer-hooks-in-order': 'warn',
+      'jest/prefer-hooks-on-top': 'warn',
+      'jest/prefer-spy-on': 'warn',
+      'jest/prefer-strict-equal': 'warn',
+      'jest/prefer-to-be': 'warn',
+      'jest/prefer-to-contain': 'warn',
+      'jest/prefer-to-have-length': 'warn',
+      'jest/require-to-throw-message': 'warn',
+      'jest/require-top-level-describe': 'off',
+      'jest/valid-describe-callback': 'error',
+      'jest/valid-expect': 'error',
+      'jest/valid-expect-in-promise': 'error',
+      'jest/valid-title': 'error',
+    },
+    languageOptions: {
+      globals: {
+        ...globals.jest,
+      },
     },
   },
 ]
