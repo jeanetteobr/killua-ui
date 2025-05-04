@@ -13,6 +13,8 @@
   cursor: pointer;
   outline: none;
   min-height: 40px;
+  color: var(--kui-btn-text-color, #fff) !important;
+  background: var(--kui-btn-bg-color, var(--color-primary));
 }
 
 .kui-btn--fullWidth {
@@ -20,36 +22,30 @@
 }
 
 .kui-btn--primary {
-  background: var(--color-primary);
-  color: #fff;
+  background: var(--kui-btn-bg-color, var(--color-primary));
 }
 .kui-btn--secondary {
-  background: var(--color-secondary);
-  color: #fff;
+  background: var(--kui-btn-bg-color, var(--color-secondary));
 }
 .kui-btn--ghost {
-  background: transparent;
-  color: var(--text-primary);
+  background: var(--kui-btn-bg-color, transparent);
+  color: var(--kui-btn-text-color, var(--text-primary));
 }
 .kui-btn--danger {
-  background: var(--color-danger);
-  color: #fff;
+  background: var(--kui-btn-bg-color, var(--color-danger));
 }
 .kui-btn--success {
-  background: var(--color-success);
-  color: #fff;
+  background: var(--kui-btn-bg-color, var(--color-success));
 }
 .kui-btn--warning {
-  background: var(--color-warning);
-  color: #fff;
+  background: var(--kui-btn-bg-color, var(--color-warning));
 }
 .kui-btn--info {
-  background: var(--color-info);
-  color: #fff;
+  background: var(--kui-btn-bg-color, var(--color-info));
 }
 .kui-btn--link {
-  background: transparent;
-  color: var(--color-link);
+  background: var(--kui-btn-bg-color, transparent);
+  color: var(--kui-btn-text-color, var(--color-link));
   text-decoration: underline;
   font-weight: var(--font-weight-medium);
 }
