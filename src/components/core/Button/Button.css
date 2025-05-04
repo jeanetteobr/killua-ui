@@ -1,0 +1,86 @@
+.kui-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 0.5em 1.5em;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  box-shadow: var(--elevation-sm);
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  min-height: 40px;
+}
+
+.kui-btn--fullWidth {
+  width: 100%;
+}
+
+.kui-btn--primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+.kui-btn--secondary {
+  background: var(--color-secondary);
+  color: #fff;
+}
+.kui-btn--ghost {
+  background: transparent;
+  color: var(--text-primary);
+}
+.kui-btn--danger {
+  background: var(--color-danger);
+  color: #fff;
+}
+.kui-btn--success {
+  background: var(--color-success);
+  color: #fff;
+}
+.kui-btn--warning {
+  background: var(--color-warning);
+  color: #fff;
+}
+.kui-btn--info {
+  background: var(--color-info);
+  color: #fff;
+}
+.kui-btn--link {
+  background: transparent;
+  color: var(--color-link);
+  text-decoration: underline;
+  font-weight: var(--font-weight-medium);
+}
+
+.kui-btn--disabled,
+.kui-btn--loading {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.kui-btn__spinner {
+  width: 1.25em;
+  height: 1.25em;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+}
+
+.kui-btn__content {
+  display: inline-block;
+}
+
+/*
+  Visually hide button content when loading, but keep it accessible for screen readers.
+  This ensures the spinner is perfectly centered and the button size is preserved.
+  Pattern is widely used in accessible design systems.
+*/
+.kui-btn__content--hidden {
+  position: absolute;
+  left: -9999px;
+  visibility: hidden;
+} 

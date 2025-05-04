@@ -1,5 +1,6 @@
 import React, { forwardRef } from "react";
 import { ButtonProps, ButtonVariant } from "./Button.types";
+import './Button.css';
 
 const variantBgColors: Record<ButtonVariant, string> = {
   primary: "var(--color-primary)",
@@ -93,6 +94,16 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
   className,
   ...props
 }, ref) => {
+  // Compute class names
+  const classes = [
+    'kui-btn',
+    `kui-btn--${variant}`,
+    fullWidth ? 'kui-btn--fullWidth' : '',
+    disabled ? 'kui-btn--disabled' : '',
+    loading ? 'kui-btn--loading' : '',
+    className || ''
+  ].filter(Boolean).join(' ');
+
   // Compute dynamic text color for solid variants
   let textColor: string | undefined = undefined;
   if (variant !== "ghost" && variant !== "link" && variant !== "secondary") {
@@ -101,31 +112,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
   if (variant === "secondary") {
     textColor = "#FFFFFF";
   }
-
-  const baseStyles: React.CSSProperties = {
-    ...variantStyles[variant],
-    ...(textColor ? { color: textColor } : {}),
-    padding: "var(--spacing-sm) var(--spacing-md)",
-    borderRadius: "var(--radius-md)",
-    fontSize: "var(--font-size-sm)",
-    fontWeight: 500,
-    boxShadow: "var(--elevation-sm)",
-    cursor: disabled || loading ? "not-allowed" : "pointer",
-    opacity: disabled || loading ? 0.5 : 1,
-    width: fullWidth ? "100%" : "auto",
-    display: "inline-flex",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: "var(--spacing-xs)",
-    position: "relative",
-    transition: "all 0.2s ease",
-  };
-
-  // Get the button's role based on variant
-  const getButtonRole = () => {
-    if (variant === "link") return "link";
-    return "button";
-  };
 
   // Get the button's accessible name
   const getAccessibleName = () => {
@@ -136,34 +122,25 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
   return (
     <button
       ref={ref}
-      role={getButtonRole()}
+      role={variant === "link" ? "link" : "button"}
       aria-disabled={disabled || loading}
       aria-busy={loading}
       aria-label={getAccessibleName()}
       disabled={disabled || loading}
-      style={baseStyles}
-      className={className}
+      className={classes}
       {...props}
     >
       {loading && (
-        <span
-          role="status"
-          aria-hidden="true"
-          style={{
-            position: "absolute",
-            left: "50%",
-            top: "50%",
-            transform: "translate(-50%, -50%)",
-            width: "1em",
-            height: "1em",
-            border: "2px solid currentColor",
-            borderRightColor: "transparent",
-            borderRadius: "50%",
-            animation: "spin 1s linear infinite",
-          }}
-        />
+        <>
+          <span
+            role="status"
+            aria-hidden="true"
+            className="kui-btn__spinner"
+          />
+          <span className="sr-only">Loading...</span>
+        </>
       )}
-      <span style={{ opacity: loading ? 0 : 1 }}>{children}</span>
+      <span className={`kui-btn__content${loading ? ' kui-btn__content--hidden' : ''}`}>{children}</span>
     </button>
   );
 });
