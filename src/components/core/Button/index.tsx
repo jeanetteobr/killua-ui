@@ -1,6 +1,5 @@
 import React, { forwardRef } from "react";
 import { ButtonProps, ButtonVariant } from "./Button.types";
-import tinycolor from "tinycolor2";
 
 const variantBgColors: Record<ButtonVariant, string> = {
   primary: "var(--color-primary)",
@@ -59,6 +58,21 @@ function getCssVarValue(varName: string): string {
   return getComputedStyle(document.documentElement).getPropertyValue(varName.replace('var(', '').replace(')', '')).trim() || "#000";
 }
 
+// Helper to check if a color is light
+function isLightColor(hex: string): boolean {
+  // Remove hash if present
+  hex = hex.replace('#', '');
+  // Convert 3-digit hex to 6-digit
+  if (hex.length === 3) {
+    hex = hex.split('').map(x => x + x).join('');
+  }
+  const r = parseInt(hex.substr(0,2), 16);
+  const g = parseInt(hex.substr(2,2), 16);
+  const b = parseInt(hex.substr(4,2), 16);
+  // Perceived brightness formula
+  return (r * 299 + g * 587 + b * 114) / 1000 > 128;
+}
+
 function getDynamicTextColor(bg: string): string {
   // If transparent, use primary text color
   if (bg === "transparent") return "var(--text-primary)";
@@ -67,7 +81,7 @@ function getDynamicTextColor(bg: string): string {
   if (bg.startsWith("var(")) {
     color = getCssVarValue(bg);
   }
-  return tinycolor(color).isLight() ? "#0F172A" : "#FFFFFF";
+  return isLightColor(color) ? "#0F172A" : "#FFFFFF";
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
