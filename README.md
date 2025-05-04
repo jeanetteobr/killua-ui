@@ -1,5 +1,8 @@
 # 🪀 Killua UI
 
+[![CI](https://github.com/jeanetteobr/killua-ui/actions/workflows/ci.yml/badge.svg)](https://github.com/jeanetteobr/killua-ui/actions)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 **Killua UI** is a lightweight, modular design system inspired by the one and only Killua Zoldyck from *Hunter x Hunter*. It's built for speed, precision, accessibility, and elegance—just like its namesake.
 
 ---
@@ -105,16 +108,26 @@ npm run generate:page PageName           # Generate new page
 
 ## 🗺️ Mini Roadmap Preview
 
-| Feature                        | Status   |
-|--------------------------------|----------|
-| Design tokens (light/dark)     | ✅ Done  |
-| Theme switching & system theme | ✅ Done  |
-| Color contrast compliance      | ✅ Done  |
-| Accessible core components     | ✅ Done  |
-| Screen reader support          | ⬜ In Progress |
-| More components (inputs, etc.) | ⬜ Next  |
+| Feature                        | Status         |
+|--------------------------------|----------------|
+| Phase 1: Foundation            | ✅ Complete    |
+| Design tokens (light/dark)     | ✅ Done        |
+| Theme switching & system theme | ✅ Done        |
+| Color contrast compliance      | ✅ Done        |
+| Accessible core components     | ✅ Done        |
+| Screen reader support          | ✅ Done        |
+| Phase 2: Core Components       | ⏳ In Progress |
+| Input components (text, etc.)  | ⏳ In Progress |
+| Selection components           | ⏳ In Progress |
+| Feedback/navigation components | ⏳ In Progress |
 
 > See the [full roadmap](ROADMAP.md) for details and future plans.
+
+---
+
+## 📚 Documentation
+
+Full usage documentation and live examples will be available soon in a dedicated docs site. Stay tuned!
 
 ---
 
