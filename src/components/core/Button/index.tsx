@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import { forwardRef } from "react";
 import { ButtonProps, ButtonVariant } from "./Button.types";
 import './Button.css';
 
@@ -11,46 +11,6 @@ const variantBgColors: Record<ButtonVariant, string> = {
   warning: "var(--color-warning)",
   info: "var(--color-info)",
   link: "transparent",
-};
-
-const variantStyles = {
-  primary: {
-    backgroundColor: "var(--color-primary)",
-    border: "none",
-  },
-  secondary: {
-    backgroundColor: "var(--color-secondary)",
-    color: "#FFFFFF",
-    border: "none",
-  },
-  ghost: {
-    backgroundColor: "transparent",
-    color: "var(--text-primary)",
-    border: "none",
-  },
-  danger: {
-    backgroundColor: "var(--color-danger)",
-    border: "none",
-  },
-  success: {
-    backgroundColor: "var(--color-success)",
-    border: "none",
-  },
-  warning: {
-    backgroundColor: "var(--color-warning)",
-    border: "none",
-  },
-  info: {
-    backgroundColor: "var(--color-info)",
-    border: "none",
-  },
-  link: {
-    backgroundColor: "transparent",
-    color: "var(--color-link)",
-    textDecoration: "underline",
-    fontWeight: "var(--font-weight-medium)",
-    border: "none",
-  },
 };
 
 // Helper to get the computed color value from CSS variable
@@ -103,15 +63,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
     loading ? 'kui-btn--loading' : '',
     className || ''
   ].filter(Boolean).join(' ');
-
-  // Compute dynamic text color for solid variants
-  let textColor: string | undefined = undefined;
-  if (variant !== "ghost" && variant !== "link" && variant !== "secondary") {
-    textColor = getDynamicTextColor(variantBgColors[variant]);
-  }
-  if (variant === "secondary") {
-    textColor = "#FFFFFF";
-  }
 
   // Get the button's accessible name
   const getAccessibleName = () => {
