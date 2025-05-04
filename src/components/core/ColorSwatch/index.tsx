@@ -1,5 +1,6 @@
 import React from "react";
 import type { SwatchProps } from "./ColorSwatch.types";
+import './ColorSwatch.css';
 
 // Helper to check if a color is light
 function isLightColor(hex: string): boolean {
@@ -15,34 +16,18 @@ function isLightColor(hex: string): boolean {
 
 export const ColorSwatch: React.FC<SwatchProps> = ({ name, hex }) => {
   const textColor = isLightColor(hex) ? "#0F172A" : "#FFFFFF";
+  const style = {
+    backgroundColor: hex,
+    '--kui-swatch-text-color': textColor,
+  } as React.CSSProperties;
 
   return (
     <div
-      style={{
-        backgroundColor: hex,
-        color: textColor,
-        padding: "var(--spacing-md)",
-        borderRadius: "var(--radius-md)",
-        width: "150px",
-        height: "100px",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        boxShadow: "var(--elevation-sm)",
-        overflow: "hidden",
-      }}
+      style={style}
+      className="kui-swatch"
     >
-      <div
-        style={{
-          fontWeight: "var(--font-weight-medium)",
-          fontSize: "var(--font-size-sm)",
-          wordBreak: "break-word",
-          overflowWrap: "anywhere",
-        }}
-      >
-        {name}
-      </div>
-      <div style={{ fontSize: "var(--font-size-xs)" }}>{hex}</div>
+      <div className="kui-swatch__name">{name}</div>
+      <div className="kui-swatch__hex">{hex}</div>
     </div>
   );
 };

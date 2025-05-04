@@ -1,60 +1,46 @@
 import { forwardRef } from "react";
-import { ButtonProps, ButtonVariant } from "./Button.types";
+import { ButtonProps } from "./Button.types";
+import { colors } from "@/tokens/colors";
 import './Button.css';
-
-const variantBgColors: Record<ButtonVariant, string> = {
-  primary: "var(--color-primary)",
-  secondary: "var(--color-info)",
-  ghost: "transparent",
-  danger: "var(--color-danger)",
-  success: "var(--color-success)",
-  warning: "var(--color-warning)",
-  info: "var(--color-info)",
-  link: "transparent",
-};
-
-// Helper to get the computed color value from CSS variable
-function getCssVarValue(varName: string): string {
-  if (typeof window === "undefined") return "#000";
-  return getComputedStyle(document.documentElement).getPropertyValue(varName.replace('var(', '').replace(')', '')).trim() || "#000";
-}
+import { useTheme } from "@/theme/useTheme";
 
 // Helper to check if a color is light
 function isLightColor(hex: string): boolean {
-  // Remove hash if present
   hex = hex.replace('#', '');
-  // Convert 3-digit hex to 6-digit
-  if (hex.length === 3) {
-    hex = hex.split('').map(x => x + x).join('');
-  }
+  if (hex.length === 3) hex = hex.split('').map(x => x + x).join('');
   const r = parseInt(hex.substr(0,2), 16);
   const g = parseInt(hex.substr(2,2), 16);
   const b = parseInt(hex.substr(4,2), 16);
-  // Perceived brightness formula
   return (r * 299 + g * 587 + b * 114) / 1000 > 128;
 }
 
-function getDynamicTextColor(bg: string): string {
-  // If transparent, use primary text color
-  if (bg === "transparent") return "var(--text-primary)";
-  // If CSS var, resolve it
-  let color = bg;
-  if (bg.startsWith("var(")) {
-    color = getCssVarValue(bg);
-  }
-  return isLightColor(color) ? "#0F172A" : "#FFFFFF";
+export interface ButtonCustomProps extends ButtonProps {
+  bgColor?: string; // Accepts a custom background color (hex)
 }
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
+const variantToColor = (theme: "dark" | "light") => ({
+  primary: theme === "light" ? colors.light.primary : colors.primary,
+  secondary: 'var(--color-secondary)', // Always use the CSS variable for gray
+  ghost: 'transparent',
+  danger: theme === "light" ? colors.light.danger : colors.danger,
+  success: theme === "light" ? colors.light.success : colors.success,
+  warning: theme === "light" ? colors.light.warning : colors.warning,
+  info: theme === "light" ? colors.light.info : colors.info,
+  link: theme === "light" ? colors.light.link : colors.link,
+});
+
+export const Button = forwardRef<HTMLButtonElement, ButtonCustomProps>(({
   children,
   variant = "primary",
   disabled = false,
   loading = false,
   fullWidth = false,
   className,
+  bgColor,
   ...props
 }, ref) => {
-  // Compute class names
+  const { resolvedTheme } = useTheme();
+  const theme = resolvedTheme || "dark";
   const classes = [
     'kui-btn',
     `kui-btn--${variant}`,
@@ -64,7 +50,18 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
     className || ''
   ].filter(Boolean).join(' ');
 
-  // Get the button's accessible name
+  // Resolve background color for variant if not provided
+  const variantColors = variantToColor(theme);
+  const resolvedBgColor = bgColor || variantColors[variant] || variantColors.primary;
+  // For ghost, always use --text-primary for text color
+  const textColor = variant === 'ghost'
+    ? 'var(--text-primary)'
+    : isLightColor(resolvedBgColor) ? '#0F172A' : '#fff';
+  const customStyle: React.CSSProperties = {
+    '--kui-btn-text-color': textColor,
+    '--kui-btn-bg-color': resolvedBgColor,
+  } as React.CSSProperties;
+
   const getAccessibleName = () => {
     if (loading) return `${String(children)} (Loading...)`;
     return String(children);
@@ -79,6 +76,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
       aria-label={getAccessibleName()}
       disabled={disabled || loading}
       className={classes}
+      style={customStyle}
       {...props}
     >
       {loading && (
