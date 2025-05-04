@@ -36,6 +36,8 @@ html, body {
   --text-primary: #FFFFFF;
   --text-secondary: #E0D7FF;
   --text-on-solid: #FFFFFF;
+  --text-on-light: #0F172A;
+  --text-on-dark: #fff;
 
   /* Focus Rings - using semantic colors with opacity */
   --focus-ring-primary: color-mix(in srgb, var(--color-primary) 65%, transparent);
@@ -99,6 +101,8 @@ html, body {
   --text-primary: #0F172A;
   --text-secondary: #475569;
   --text-on-solid: #FFFFFF;
+  --text-on-light: #0F172A;
+  --text-on-dark: #fff;
 
   /* Focus Rings - using semantic colors with opacity */
   --focus-ring-primary: color-mix(in srgb, var(--color-primary) 65%, transparent);

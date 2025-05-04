@@ -54,12 +54,19 @@ export const Button = forwardRef<HTMLButtonElement, ButtonCustomProps>(({
   const variantColors = variantToColor(theme);
   const resolvedBgColor = bgColor || variantColors[variant] || variantColors.primary;
   // For ghost, always use --text-primary for text color
-  const textColor = variant === 'ghost'
-    ? 'var(--text-primary)'
-    : isLightColor(resolvedBgColor) ? '#0F172A' : '#fff';
+  let textColor;
+  if (variant === 'ghost') {
+    textColor = 'var(--text-primary)';
+  } else if (variant === 'link') {
+    textColor = 'var(--color-link)';
+  } else {
+    textColor = isLightColor(resolvedBgColor)
+      ? 'var(--text-on-light)'
+      : 'var(--text-on-dark)';
+  }
   const customStyle: React.CSSProperties = {
     '--kui-btn-text-color': textColor,
-    '--kui-btn-bg-color': resolvedBgColor,
+    '--kui-btn-bg-color': variant === 'link' ? 'transparent' : resolvedBgColor,
   } as React.CSSProperties;
 
   const getAccessibleName = () => {
