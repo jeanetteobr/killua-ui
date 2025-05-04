@@ -99,73 +99,57 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
     cursor: disabled || loading ? "not-allowed" : "pointer",
     opacity: disabled || loading ? 0.5 : 1,
     width: fullWidth ? "100%" : "auto",
-    transition: "all 0.2s ease",
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
     gap: "var(--spacing-xs)",
     position: "relative",
-    outline: "none",
+    transition: "all 0.2s ease",
   };
 
-  const focusRingColors = {
-    primary: "var(--focus-ring-primary)",
-    secondary: "var(--focus-ring-secondary)",
-    ghost: "var(--focus-ring-ghost)",
-    danger: "var(--focus-ring-danger)",
-    success: "var(--focus-ring-success)",
-    warning: "var(--focus-ring-warning)",
-    info: "var(--focus-ring-info)",
-    link: "var(--focus-ring-link)",
+  // Get the button's role based on variant
+  const getButtonRole = () => {
+    if (variant === "link") return "link";
+    return "button";
   };
 
-  const getFocusRingStyles = (variant: ButtonVariant) => ({
-    boxShadow: `var(--elevation-sm), 0 0 0 4px color-mix(in srgb, ${focusRingColors[variant]} 65%, transparent)`,
-    outline: "2px solid transparent",
-    outlineOffset: "2px",
-  });
-
-  const handleFocus = (e: React.FocusEvent<HTMLButtonElement>) => {
-    const styles = getFocusRingStyles(variant);
-    e.currentTarget.style.boxShadow = styles.boxShadow;
-    e.currentTarget.style.outline = styles.outline;
-    e.currentTarget.style.outlineOffset = styles.outlineOffset;
-  };
-
-  const handleBlur = (e: React.FocusEvent<HTMLButtonElement>) => {
-    e.currentTarget.style.boxShadow = baseStyles.boxShadow as string;
-    e.currentTarget.style.outline = "none";
-    e.currentTarget.style.outlineOffset = "0";
+  // Get the button's accessible name
+  const getAccessibleName = () => {
+    if (loading) return `${String(children)} (Loading...)`;
+    return String(children);
   };
 
   return (
     <button
       ref={ref}
-      style={baseStyles}
-      disabled={disabled || loading}
-      aria-busy={loading}
+      role={getButtonRole()}
       aria-disabled={disabled || loading}
-      data-variant={variant}
-      className={`focus-ring-${variant} ${className || ""}`}
-      onFocus={handleFocus}
-      onBlur={handleBlur}
+      aria-busy={loading}
+      aria-label={getAccessibleName()}
+      disabled={disabled || loading}
+      style={baseStyles}
+      className={className}
       {...props}
     >
       {loading && (
         <span
+          role="status"
           aria-hidden="true"
           style={{
-            display: "inline-block",
+            position: "absolute",
+            left: "50%",
+            top: "50%",
+            transform: "translate(-50%, -50%)",
             width: "1em",
             height: "1em",
             border: "2px solid currentColor",
             borderRightColor: "transparent",
             borderRadius: "50%",
-            animation: "spin 0.75s linear infinite",
+            animation: "spin 1s linear infinite",
           }}
         />
       )}
-      <span>{loading ? "Loading..." : children}</span>
+      <span style={{ opacity: loading ? 0 : 1 }}>{children}</span>
     </button>
   );
 });
