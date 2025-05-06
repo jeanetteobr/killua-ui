@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
+    "lint": "eslint . --config config/.eslintrc.json --ignore-path config/.eslintignore",
     "preview": "vite preview",
     "generate:component": "node scripts/generateComponent.mjs",
     "generate:page": "node scripts/generatePage.mjs",
