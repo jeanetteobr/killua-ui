@@ -4,4 +4,5 @@ export { HeadingDocs } from "./HeadingDocs";
 export { TextDocs } from "./TextDocs";
 export { LinkDocs } from "./LinkDocs";
 export { TokensDocs } from "./TokensDocs";
+export { RoadmapDocs } from "./RoadmapDocs";
 export { ComingSoon } from "./ComingSoon";

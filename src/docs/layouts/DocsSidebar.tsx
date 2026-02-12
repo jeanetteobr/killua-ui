@@ -13,6 +13,7 @@ const navigation: NavSection[] = [
     items: [
       { label: "Getting Started", path: "/docs" },
       { label: "Design Tokens", path: "/docs/tokens" },
+      { label: "Roadmap", path: "/docs/roadmap" },
     ],
   },
   {

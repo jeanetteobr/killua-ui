@@ -9,6 +9,7 @@ import {
   TextDocs,
   LinkDocs,
   TokensDocs,
+  RoadmapDocs,
   ComingSoon 
 } from "@/docs/pages";
 
@@ -33,6 +34,9 @@ function App() {
             
             {/* Tokens docs */}
             <Route path="tokens" element={<TokensDocs />} />
+            
+            {/* Roadmap */}
+            <Route path="roadmap" element={<RoadmapDocs />} />
             
             {/* Coming soon pages for components not yet documented */}
             <Route path="components/:component" element={<ComingSoon />} />
