@@ -14,7 +14,7 @@ Building the components needed for a personal portfolio site.
 ### Typography
 - [x] Heading (h1-h6 with consistent styling)
 - [x] Text (body copy with size/weight variants)
-- [ ] Link (styled anchor with hover/focus states)
+- [x] Link (styled anchor with hover/focus states)
 
 ### Layout
 - [ ] Container (max-width wrapper)

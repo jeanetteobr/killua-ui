@@ -1,0 +1,103 @@
+/* =========================
+   Link Component Styles
+========================= */
+
+.kui-link {
+  color: var(--color-link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+  font-family: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  display: inline;
+}
+
+/* Focus state */
+.kui-link:focus-visible {
+  outline: 2px solid var(--focus-ring-link);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Hover state */
+.kui-link:hover {
+  color: var(--color-primary);
+  text-decoration-color: var(--color-primary);
+}
+
+/* =========================
+   Variants
+========================= */
+
+/* Default - standard link color with underline */
+.kui-link--default {
+  color: var(--color-link);
+}
+
+/* Subtle - uses secondary text color */
+.kui-link--subtle {
+  color: var(--text-secondary);
+}
+
+.kui-link--subtle:hover {
+  color: var(--color-link);
+}
+
+/* Unstyled - muted color, no underline by default */
+.kui-link--unstyled {
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+.kui-link--unstyled:hover {
+  color: var(--color-link);
+  text-decoration: underline;
+}
+
+/* =========================
+   Sizes
+========================= */
+
+.kui-link--sm {
+  font-size: var(--font-size-sm);
+}
+
+.kui-link--base {
+  font-size: var(--font-size-md);
+}
+
+.kui-link--lg {
+  font-size: var(--font-size-lg);
+}
+
+/* =========================
+   Modifiers
+========================= */
+
+/* Underline only on hover */
+.kui-link--underline-hover {
+  text-decoration: none;
+}
+
+.kui-link--underline-hover:hover {
+  text-decoration: underline;
+}
+
+/* Disabled state */
+.kui-link--disabled {
+  color: var(--text-secondary);
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+  text-decoration: none;
+}
+
+/* External link icon spacing (if icon is added) */
+.kui-link__external-icon {
+  margin-left: 0.25em;
+  display: inline-block;
+  vertical-align: middle;
+}

@@ -11,3 +11,6 @@ export type { HeadingProps, HeadingLevel, HeadingSize } from './Heading/Heading.
 
 export { Text } from './Text';
 export type { TextProps, TextSize, TextWeight, TextColor, TextAlign } from './Text/Text.types';
+
+export { Link } from './Link';
+export type { LinkProps, LinkVariant, LinkSize } from './Link/Link.types';

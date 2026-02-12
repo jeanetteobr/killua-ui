@@ -4,21 +4,44 @@
   "version": "0.1.0",
   "description": "A lightning-fast, modern React component library inspired by Killua from Hunter x Hunter",
   "type": "module",
+  "main": "dist/lib/killua-ui.cjs.js",
+  "module": "dist/lib/killua-ui.es.js",
+  "types": "dist/lib/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/lib/types/index.d.ts",
+      "import": "./dist/lib/killua-ui.es.js",
+      "require": "./dist/lib/killua-ui.cjs.js"
+    },
+    "./styles.css": "./dist/lib/killua-ui.css"
+  },
+  "files": [
+    "dist/lib",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:lib": "vite build --config vite.config.lib.ts && tsc -p tsconfig.lib.json",
     "lint": "eslint . --config config/.eslintrc.json --ignore-path config/.eslintignore",
     "preview": "vite preview",
     "generate:component": "node scripts/generateComponent.mjs",
     "test": "jest --config config/jest.config.js",
-    "test:watch": "jest --config config/jest.config.js --watch"
+    "test:watch": "jest --config config/jest.config.js --watch",
+    "prepublishOnly": "npm run build:lib && npm run test"
   },
-  "dependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-router-dom": "^7.13.0"
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
   },
   "devDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.13.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
     "@types/jest": "^29.5.14",

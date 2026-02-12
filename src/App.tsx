@@ -7,6 +7,7 @@ import {
   ButtonDocs, 
   HeadingDocs,
   TextDocs,
+  LinkDocs,
   TokensDocs,
   ComingSoon 
 } from "@/docs/pages";
@@ -28,6 +29,7 @@ function App() {
             <Route path="components/button" element={<ButtonDocs />} />
             <Route path="components/heading" element={<HeadingDocs />} />
             <Route path="components/text" element={<TextDocs />} />
+            <Route path="components/link" element={<LinkDocs />} />
             
             {/* Tokens docs */}
             <Route path="tokens" element={<TokensDocs />} />
