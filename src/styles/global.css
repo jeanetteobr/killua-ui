@@ -115,6 +115,42 @@ html, body {
   --focus-ring-link: color-mix(in srgb, var(--color-link) 65%, transparent);
 }
 
+/* =======================
+   DARK MODE (explicit class for nested contexts)
+   Must come AFTER .light-theme for proper cascade
+========================== */
+.dark-theme {
+  /* Backgrounds */
+  --background-base: #100418;
+  --background-surface: #1B0E2A;
+
+  /* Core Colors */
+  --color-primary: #7C3AED;
+  --color-link: #BFA3FF;
+  --color-info: #06B6D4;
+  --color-success: #4ADE80;
+  --color-warning: #FACC15;
+  --color-danger: #FF4E9B;
+  --color-secondary: #64748B;
+
+  /* Text */
+  --text-primary: #FFFFFF;
+  --text-secondary: #E0D7FF;
+  --text-on-solid: #FFFFFF;
+  --text-on-light: #0F172A;
+  --text-on-dark: #fff;
+
+  /* Focus Rings */
+  --focus-ring-primary: color-mix(in srgb, var(--color-primary) 65%, transparent);
+  --focus-ring-secondary: color-mix(in srgb, var(--color-secondary) 65%, transparent);
+  --focus-ring-ghost: color-mix(in srgb, var(--text-primary) 65%, transparent);
+  --focus-ring-danger: color-mix(in srgb, var(--color-danger) 65%, transparent);
+  --focus-ring-success: color-mix(in srgb, var(--color-success) 65%, transparent);
+  --focus-ring-warning: color-mix(in srgb, var(--color-warning) 65%, transparent);
+  --focus-ring-info: color-mix(in srgb, var(--color-info) 65%, transparent);
+  --focus-ring-link: color-mix(in srgb, var(--color-link) 65%, transparent);
+}
+
 /* Focus Ring Styles */
 .focus-ring-primary:focus-visible {
   box-shadow: var(--elevation-sm), 0 0 0 4px var(--focus-ring-primary) !important;
