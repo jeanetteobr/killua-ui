@@ -64,159 +64,135 @@ export const TextDocs: React.FC = () => {
   return (
     <article className="docs-page">
       <Heading level={1} size="2xl">Text</Heading>
-      <Text size="lg" color="secondary">
+      <p className="docs-page__description">
         A flexible text component for body copy, labels, and general content with size, weight, and color variants.
-      </Text>
+      </p>
 
-      {/* Basic Example */}
-      <section className="docs-page__section">
-        <Heading level={2} size="lg">Basic Usage</Heading>
-        <Example
-          code={`<Text>Default paragraph text</Text>
+      <div className="docs-page__import">
+        <p className="docs-page__import-label">Import</p>
+        <pre className="docs-page__code">
+          <code>{`import { Text } from '@/components/core/Text';`}</code>
+        </pre>
+      </div>
+
+      <Example
+        title="Basic Usage"
+        code={`<Text>Default paragraph text</Text>
 <Text size="lg">Large text</Text>
 <Text weight="bold">Bold text</Text>
 <Text color="secondary">Secondary color</Text>`}
-        >
-          <div style={{ display: "flex", flexDirection: "column", gap: "var(--spacing-sm)" }}>
-            <Text>Default paragraph text</Text>
-            <Text size="lg">Large text</Text>
-            <Text weight="bold">Bold text</Text>
-            <Text color="secondary">Secondary color</Text>
-          </div>
-        </Example>
-      </section>
+      >
+        <div style={{ display: "flex", flexDirection: "column", gap: "var(--spacing-sm)" }}>
+          <Text>Default paragraph text</Text>
+          <Text size="lg">Large text</Text>
+          <Text weight="bold">Bold text</Text>
+          <Text color="secondary">Secondary color</Text>
+        </div>
+      </Example>
 
-      {/* Sizes */}
-      <section className="docs-page__section">
-        <Heading level={2} size="lg">Sizes</Heading>
-        <Text color="secondary">
-          Five size variants from extra small to extra large.
-        </Text>
-        <Example
-          code={`<Text size="xs">Extra small (12px)</Text>
+      <Example
+        title="Sizes"
+        description="Five size variants from extra small to extra large."
+        code={`<Text size="xs">Extra small (12px)</Text>
 <Text size="sm">Small (14px)</Text>
 <Text size="base">Base (16px) - default</Text>
 <Text size="lg">Large (18px)</Text>
 <Text size="xl">Extra large (20px)</Text>`}
-        >
-          <div style={{ display: "flex", flexDirection: "column", gap: "var(--spacing-sm)" }}>
-            <Text size="xs">Extra small (12px)</Text>
-            <Text size="sm">Small (14px)</Text>
-            <Text size="base">Base (16px) - default</Text>
-            <Text size="lg">Large (18px)</Text>
-            <Text size="xl">Extra large (20px)</Text>
-          </div>
-        </Example>
-      </section>
+      >
+        <div style={{ display: "flex", flexDirection: "column", gap: "var(--spacing-sm)" }}>
+          <Text size="xs">Extra small (12px)</Text>
+          <Text size="sm">Small (14px)</Text>
+          <Text size="base">Base (16px) - default</Text>
+          <Text size="lg">Large (18px)</Text>
+          <Text size="xl">Extra large (20px)</Text>
+        </div>
+      </Example>
 
-      {/* Weights */}
-      <section className="docs-page__section">
-        <Heading level={2} size="lg">Weights</Heading>
-        <Example
-          code={`<Text weight="regular">Regular weight (400)</Text>
+      <Example
+        title="Weights"
+        code={`<Text weight="regular">Regular weight (400)</Text>
 <Text weight="medium">Medium weight (500)</Text>
 <Text weight="bold">Bold weight (700)</Text>`}
-        >
-          <div style={{ display: "flex", flexDirection: "column", gap: "var(--spacing-sm)" }}>
-            <Text weight="regular">Regular weight (400)</Text>
-            <Text weight="medium">Medium weight (500)</Text>
-            <Text weight="bold">Bold weight (700)</Text>
-          </div>
-        </Example>
-      </section>
+      >
+        <div style={{ display: "flex", flexDirection: "column", gap: "var(--spacing-sm)" }}>
+          <Text weight="regular">Regular weight (400)</Text>
+          <Text weight="medium">Medium weight (500)</Text>
+          <Text weight="bold">Bold weight (700)</Text>
+        </div>
+      </Example>
 
-      {/* Colors */}
-      <section className="docs-page__section">
-        <Heading level={2} size="lg">Colors</Heading>
-        <Example
-          code={`<Text color="primary">Primary text color</Text>
+      <Example
+        title="Colors"
+        code={`<Text color="primary">Primary text color</Text>
 <Text color="secondary">Secondary text color</Text>
 <Text color="muted">Muted text color</Text>
 <Text color="inherit">Inherits parent color</Text>`}
-          showModes
-        >
-          <div style={{ display: "flex", flexDirection: "column", gap: "var(--spacing-sm)" }}>
-            <Text color="primary">Primary text color</Text>
-            <Text color="secondary">Secondary text color</Text>
-            <Text color="muted">Muted text color</Text>
-            <Text color="inherit">Inherits parent color</Text>
-          </div>
-        </Example>
-      </section>
+        showModes
+      >
+        <div style={{ display: "flex", flexDirection: "column", gap: "var(--spacing-sm)" }}>
+          <Text color="primary">Primary text color</Text>
+          <Text color="secondary">Secondary text color</Text>
+          <Text color="muted">Muted text color</Text>
+          <Text color="inherit">Inherits parent color</Text>
+        </div>
+      </Example>
 
-      {/* Alignment */}
-      <section className="docs-page__section">
-        <Heading level={2} size="lg">Alignment</Heading>
-        <Example
-          code={`<Text align="left">Left aligned text</Text>
+      <Example
+        title="Alignment"
+        description="Control text alignment with the align prop."
+        code={`<Text align="left">Left aligned text</Text>
 <Text align="center">Center aligned text</Text>
 <Text align="right">Right aligned text</Text>`}
-        >
-          <div style={{ display: "flex", flexDirection: "column", gap: "var(--spacing-sm)", width: "100%" }}>
-            <Text align="left">Left aligned text</Text>
-            <Text align="center">Center aligned text</Text>
-            <Text align="right">Right aligned text</Text>
-          </div>
-        </Example>
-      </section>
+      >
+        <div style={{ display: "flex", flexDirection: "column", gap: "var(--spacing-sm)", width: "100%" }}>
+          <Text align="left">Left aligned text</Text>
+          <Text align="center">Center aligned text</Text>
+          <Text align="right">Right aligned text</Text>
+        </div>
+      </Example>
 
-      {/* Truncation */}
-      <section className="docs-page__section">
-        <Heading level={2} size="lg">Truncation</Heading>
-        <Text color="secondary">
-          Single-line truncation with ellipsis or multi-line clamping.
-        </Text>
-        <Example
-          code={`// Single line truncation
+      <Example
+        title="Truncation"
+        description="Single-line truncation with ellipsis or multi-line clamping."
+        code={`// Single line truncation
 <Text truncate>{longText}</Text>
 
 // Multi-line clamp (2 lines)
 <Text lineClamp={2}>{longText}</Text>`}
-        >
-          <div style={{ display: "flex", flexDirection: "column", gap: "var(--spacing-md)", maxWidth: "400px" }}>
-            <div>
-              <Text size="sm" color="muted" style={{ marginBottom: "var(--spacing-xs)" }}>Single line truncate:</Text>
-              <Text truncate>{longText}</Text>
-            </div>
-            <div>
-              <Text size="sm" color="muted" style={{ marginBottom: "var(--spacing-xs)" }}>Line clamp (2 lines):</Text>
-              <Text lineClamp={2}>{longText}</Text>
-            </div>
+      >
+        <div style={{ display: "flex", flexDirection: "column", gap: "var(--spacing-md)", maxWidth: "400px" }}>
+          <div>
+            <Text size="sm" color="muted" style={{ marginBottom: "var(--spacing-xs)" }}>Single line truncate:</Text>
+            <Text truncate>{longText}</Text>
           </div>
-        </Example>
-      </section>
+          <div>
+            <Text size="sm" color="muted" style={{ marginBottom: "var(--spacing-xs)" }}>Line clamp (2 lines):</Text>
+            <Text lineClamp={2}>{longText}</Text>
+          </div>
+        </div>
+      </Example>
 
-      {/* As Different Elements */}
-      <section className="docs-page__section">
-        <Heading level={2} size="lg">Polymorphic Rendering</Heading>
-        <Text color="secondary">
-          Use the <code>as</code> prop to render as different HTML elements.
-        </Text>
-        <Example
-          code={`<Text as="p">Paragraph element (default)</Text>
+      <Example
+        title="Polymorphic Rendering"
+        description="Use the as prop to render as different HTML elements."
+        code={`<Text as="p">Paragraph element (default)</Text>
 <Text as="span" inline>Span element</Text>
 <Text as="div">Div element</Text>
 <Text as="label">Label element</Text>`}
-        >
-          <div style={{ display: "flex", flexDirection: "column", gap: "var(--spacing-sm)" }}>
-            <Text as="p">Paragraph element (default)</Text>
-            <div>
-              <Text as="span" inline>Span element - </Text>
-              <Text as="span" inline weight="bold">inline with other text</Text>
-            </div>
-            <Text as="div">Div element</Text>
-            <Text as="label">Label element</Text>
+      >
+        <div style={{ display: "flex", flexDirection: "column", gap: "var(--spacing-sm)" }}>
+          <Text as="p">Paragraph element (default)</Text>
+          <div>
+            <Text as="span" inline>Span element - </Text>
+            <Text as="span" inline weight="bold">inline with other text</Text>
           </div>
-        </Example>
-      </section>
+          <Text as="div">Div element</Text>
+          <Text as="label">Label element</Text>
+        </div>
+      </Example>
 
-      {/* Props Table */}
-      <section className="docs-page__section">
-        <Heading level={2} size="lg">Props</Heading>
-        <PropsTable props={textProps} />
-      </section>
+      <PropsTable props={textProps} />
 
-      {/* Accessibility */}
       <section className="docs-page__section">
         <Heading level={2} size="lg">Accessibility</Heading>
         <ul className="docs-page__list">
