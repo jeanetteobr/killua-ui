@@ -60,7 +60,7 @@ const lightThemeVars: React.CSSProperties = {
   "--color-link": "#3FC2E6",
   "--color-info": "#67E8F9",
   "--color-success": "#22C55E",
-  "--color-warning": "#D97706",
+  "--color-warning": "#CA8A04",
   "--color-danger": "#BE185D",
   "--color-secondary": "#4A5D78",
   "--text-primary": "#0F172A",
