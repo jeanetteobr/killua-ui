@@ -39,7 +39,8 @@ export const isLightColor = (hex: string): boolean => {
   const g = parseInt(normalized.substring(2, 4), 16);
   const b = parseInt(normalized.substring(4, 6), 16);
   // YIQ formula for perceived brightness
-  return (r * 299 + g * 587 + b * 114) / 1000 > 128;
+  // Threshold raised to 195 to ensure darker teals and yellows use white text
+  return (r * 299 + g * 587 + b * 114) / 1000 > 195;
 };
 
 /**

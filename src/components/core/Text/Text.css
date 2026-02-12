@@ -1,0 +1,90 @@
+/* Text Component Styles */
+
+.kui-text {
+  margin: 0;
+  font-family: var(--font-family);
+  line-height: var(--line-height-normal);
+}
+
+/* Sizes */
+.kui-text--xs {
+  font-size: var(--font-size-xs);
+}
+
+.kui-text--sm {
+  font-size: var(--font-size-sm);
+}
+
+.kui-text--base {
+  font-size: var(--font-size-base);
+}
+
+.kui-text--lg {
+  font-size: var(--font-size-lg);
+}
+
+.kui-text--xl {
+  font-size: var(--font-size-xl);
+}
+
+/* Weights */
+.kui-text--regular {
+  font-weight: var(--font-weight-regular);
+}
+
+.kui-text--medium {
+  font-weight: var(--font-weight-medium);
+}
+
+.kui-text--bold {
+  font-weight: var(--font-weight-bold);
+}
+
+/* Colors */
+.kui-text--primary {
+  color: var(--text-primary);
+}
+
+.kui-text--secondary {
+  color: var(--text-secondary);
+}
+
+.kui-text--muted {
+  color: color-mix(in srgb, var(--text-secondary) 70%, transparent);
+}
+
+.kui-text--inherit {
+  color: inherit;
+}
+
+/* Alignment */
+.kui-text--left {
+  text-align: left;
+}
+
+.kui-text--center {
+  text-align: center;
+}
+
+.kui-text--right {
+  text-align: right;
+}
+
+/* Truncation (single line) */
+.kui-text--truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Line clamp (multi-line truncation) */
+.kui-text--line-clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Inline display */
+.kui-text--inline {
+  display: inline;
+}

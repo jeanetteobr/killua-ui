@@ -47,6 +47,36 @@
   padding-top: calc(var(--spacing-lg) + 24px);
 }
 
+/* Force dark theme colors in dark preview regardless of global theme */
+.docs-example__preview--dark {
+  --background-base: #100418;
+  --background-surface: #1B0E2A;
+  --color-primary: #7C3AED;
+  --color-link: #BFA3FF;
+  --color-info: #06B6D4;
+  --color-success: #4ADE80;
+  --color-warning: #FACC15;
+  --color-danger: #FF4E9B;
+  --color-secondary: #64748B;
+  --text-primary: #FFFFFF;
+  --text-secondary: #E0D7FF;
+}
+
+/* Force light theme colors in light preview regardless of global theme */
+.docs-example__preview--light {
+  --background-base: #F5F9FA;
+  --background-surface: #FFFFFF;
+  --color-primary: #06B6D4;
+  --color-link: #3FC2E6;
+  --color-info: #67E8F9;
+  --color-success: #22C55E;
+  --color-warning: #FBBF24;
+  --color-danger: #BE185D;
+  --color-secondary: #4A5D78;
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+}
+
 .docs-example__mode-label {
   position: absolute;
   top: var(--spacing-sm);
