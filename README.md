@@ -1,4 +1,4 @@
-# 🪀 Killua UI
+# ⚡ Killua UI
 
 [![CI](https://github.com/jeanetteobr/killua-ui/actions/workflows/ci.yml/badge.svg)](https://github.com/jeanetteobr/killua-ui/actions)
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
@@ -12,8 +12,8 @@
 - **Lightweight & Modular**: Build only what you need
 - **Thematic & Accessible**: Killua-inspired palette, WCAG-compliant design
 - **Composable Components**: Built with scalability and reusability in mind
-- **Framework Friendly**: Designed with React, but exportable for other use cases
-- **Documented & Extensible**: Easy to use, easy to contribute
+- **Portfolio Ready**: Building toward a complete set of components for a portfolio site
+- **Documented & Extensible**: Live documentation with examples
 
 For a detailed roadmap of upcoming features and development plans, check out our [Roadmap](ROADMAP.md).
 
@@ -25,7 +25,7 @@ Like Killua's lightning-fast movements and precise techniques, our components ar
 
 - **Fast & Light**: Minimal dependencies, optimized performance
 - **Clean & Simple**: Uncluttered interfaces, intuitive patterns
-- **Adaptable**: Easy to theme and customize
+- **Adaptable**: Easy to theme and customize (dark/light/system)
 - **Accessible**: WCAG-compliant, keyboard-friendly
 - **Consistent**: Predictable behavior, unified design language
 
@@ -45,6 +45,8 @@ npm install
 npm run dev
 ```
 
+Then open http://localhost:5173 to view the interactive documentation.
+
 ---
 
 ## 🛠️ Development
@@ -54,16 +56,22 @@ npm run dev
 ```
 src/
 ├── components/           # Reusable UI components
-│   ├── core/            # Core components (Button, Input, etc.)
-│   └── tokens/          # Token-specific components (ColorSwatch, etc.)
+│   ├── core/            # Core components (Button, Heading, etc.)
+│   │   ├── Button/
+│   │   ├── Heading/
+│   │   ├── ColorSwatch/
+│   │   └── index.ts     # Barrel export
+│   └── icons/           # Icon components (Sun, Moon, System)
 │
-├── pages/               # Page components
-│   ├── ColorTokens/     # Color tokens documentation
-│   │   ├── index.tsx
-│   │   └── ColorTokens.types.ts
-│   └── CoreComponents/  # Core components documentation
-│       ├── index.tsx
-│       └── CoreComponents.types.ts
+├── docs/                # Documentation system
+│   ├── components/      # Doc-specific components (Example, PropsTable)
+│   ├── layouts/         # DocsLayout, DocsSidebar
+│   └── pages/           # Component documentation pages
+│
+├── theme/               # Theme system
+│   ├── ThemeContext.ts  # React context for theming
+│   ├── useTheme.tsx     # ThemeProvider and useTheme hook
+│   └── types.ts         # Theme type definitions
 │
 ├── tokens/              # Design tokens
 │   ├── colors.ts        # Color palette and themes
@@ -74,52 +82,75 @@ src/
 │   └── breakpoints.ts   # Responsive breakpoints
 │
 ├── utils/               # Utility functions
-│   └── colorHelpers.ts  # Color manipulation utilities
+│   └── colorContrast.ts # Color manipulation & WCAG utilities
 │
-└── styles/              # Global styles
-    └── global.css       # Global CSS variables and reset
+├── styles/              # Global styles
+│   └── global.css       # CSS variables and reset
+│
+└── index.ts             # Main library entry point
 ```
-
-Each directory serves a specific purpose:
-- `components/`: Contains all reusable UI components
-- `pages/`: Documentation and examples of components/tokens
-- `tokens/`: Design system foundations
-- `utils/`: Helper functions and utilities
-- `styles/`: Global styling and theming
 
 ### Available Scripts
 
 ```bash
 # Development
-npm run dev        # Start development server
-npm run build     # Build for production
-npm run preview   # Preview production build
+npm run dev              # Start development server with docs
+npm run build            # Build for production
+npm run preview          # Preview production build
+
+# Testing
+npm run test             # Run tests
+npm run test:watch       # Run tests in watch mode
 
 # Code Quality
-npm run lint      # Check for linting issues
-npm run lint:fix  # Fix linting issues automatically
+npm run lint             # Check for linting issues
 
 # Component Generation
-npm run generate:component ComponentName  # Generate new component
-npm run generate:page PageName           # Generate new page
+npm run generate:component ComponentName  # Generate new component with CSS & tests
+npm run generate:page PageName            # Generate new page
 ```
 
 ---
 
-## 🗺️ Mini Roadmap Preview
+## 📦 Components
 
-| Feature                        | Status         |
-|--------------------------------|----------------|
-| Phase 1: Foundation            | ✅ Complete    |
-| Design tokens (light/dark)     | ✅ Done        |
-| Theme switching & system theme | ✅ Done        |
-| Color contrast compliance      | ✅ Done        |
-| Accessible core components     | ✅ Done        |
-| Screen reader support          | ✅ Done        |
-| Phase 2: Core Components       | ⏳ In Progress |
-| Input components (text, etc.)  | ⏳ In Progress |
-| Selection components           | ⏳ In Progress |
-| Feedback/navigation components | ⏳ In Progress |
+### Available Now
+
+| Component | Description |
+|-----------|-------------|
+| **Button** | Action buttons with 8 variants, loading states, and accessibility |
+| **Heading** | Semantic headings (h1-h6) with independent visual sizing |
+| **ColorSwatch** | Color token visualization |
+
+### Coming Soon
+
+| Component | Category |
+|-----------|----------|
+| Text | Typography |
+| Link | Typography |
+| Container | Layout |
+| Card | Layout |
+| Badge | Data Display |
+| Avatar | Data Display |
+| Input | Forms |
+| Textarea | Forms |
+| Navbar | Navigation |
+| Footer | Navigation |
+
+> See the [full roadmap](ROADMAP.md) for details.
+
+---
+
+## 🗺️ Roadmap Progress
+
+| Phase | Status |
+|-------|--------|
+| Phase 1: Foundation | ✅ Complete |
+| Phase 2: Portfolio Site MVP | ⏳ In Progress |
+| Phase 3: Enhanced Interactions | 📋 Planned |
+| Phase 4: Polish & DX | 📋 Planned |
+
+**Current Focus:** Building components needed for a personal portfolio site.
 
 > See the [full roadmap](ROADMAP.md) for details and future plans.
 
@@ -127,7 +158,25 @@ npm run generate:page PageName           # Generate new page
 
 ## 📚 Documentation
 
-Full usage documentation and live examples will be available soon in a dedicated docs site. Stay tuned!
+Run `npm run dev` and visit http://localhost:5173/docs for:
+
+- **Getting Started** guide
+- **Live component examples** with code snippets
+- **Props documentation** for each component
+- **Dark/light mode previews**
+- **Accessibility notes**
+
+---
+
+## 🎨 Theming
+
+Killua UI supports three theme modes:
+
+- **Dark** (default) - Purple/violet palette on dark backgrounds
+- **Light** - Cyan/teal palette on light backgrounds  
+- **System** - Automatically matches OS preference
+
+Toggle themes using the button in the top-right corner of the docs.
 
 ---
 
@@ -137,7 +186,8 @@ We love contributions! Please see [CONTRIBUTING.md](./CONTRIBUTING.md) for how t
 
 ---
 
-📄 License
+## 📄 License
+
 MIT – Use it, fork it, remix it. Just don't be shady.
 
 ---

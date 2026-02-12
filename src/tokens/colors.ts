@@ -36,7 +36,7 @@ export interface Colors extends ColorTheme {
 export const colors: Colors = {
   // --- DEFAULT THEME (DARK MODE) ---
   // Synced with :root in global.css
-  primary: "#8B5CF6",
+  primary: "#7C3AED",
   secondary: "#64748B",
   link: "#BFA3FF",
   info: "#06B6D4",

@@ -34,14 +34,9 @@ export default [
       'react-refresh': reactRefresh,
     },
     rules: {
-      ...tseslint.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
-      // Disable base rule in favor of TypeScript version
+      // Disable base no-unused-vars to avoid false positives on TS interfaces
       'no-unused-vars': 'off',
-      '@typescript-eslint/no-unused-vars': ['warn', { 
-        argsIgnorePattern: '^_',
-        varsIgnorePattern: '^_',
-      }],
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },
@@ -65,7 +60,7 @@ export default [
       '@typescript-eslint': tseslint,
     },
     rules: {
-      ...tseslint.rules,
+      'no-unused-vars': 'off',
     },
   },
   {

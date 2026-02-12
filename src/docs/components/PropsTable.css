@@ -1,0 +1,87 @@
+/* Props Table */
+
+.docs-props {
+  margin-top: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+}
+
+.docs-props__title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.docs-props__table-wrapper {
+  overflow-x: auto;
+  border: 1px solid color-mix(in srgb, var(--text-secondary) 20%, transparent);
+  border-radius: var(--radius-lg);
+}
+
+.docs-props__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-sm);
+}
+
+.docs-props__table th,
+.docs-props__table td {
+  padding: var(--spacing-sm) var(--spacing-md);
+  text-align: left;
+  border-bottom: 1px solid color-mix(in srgb, var(--text-secondary) 15%, transparent);
+}
+
+.docs-props__table th {
+  background-color: var(--background-surface);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-secondary);
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.docs-props__table tr:last-child td {
+  border-bottom: none;
+}
+
+.docs-props__table tr:hover td {
+  background-color: color-mix(in srgb, var(--text-secondary) 5%, transparent);
+}
+
+.docs-props__name {
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  color: var(--color-primary);
+  background-color: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+}
+
+.docs-props__required {
+  color: var(--color-danger);
+  margin-left: 2px;
+}
+
+.docs-props__type {
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  color: var(--color-info);
+  font-size: var(--font-size-xs);
+}
+
+.docs-props__default {
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  color: var(--color-success);
+  background-color: color-mix(in srgb, var(--color-success) 10%, transparent);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+}
+
+.docs-props__none {
+  color: var(--text-secondary);
+}
+
+.docs-props__description {
+  color: var(--text-secondary);
+  line-height: 1.4;
+}

@@ -1,0 +1,92 @@
+/* Example Component */
+
+.docs-example {
+  margin-bottom: var(--spacing-xl);
+}
+
+.docs-example__title {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.docs-example__description {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-md);
+  line-height: 1.5;
+}
+
+.docs-example__preview {
+  padding: var(--spacing-lg);
+  background-color: var(--background-surface);
+  border: 1px solid color-mix(in srgb, var(--text-secondary) 20%, transparent);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  align-items: center;
+}
+
+.docs-example__modes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+}
+
+@media (max-width: 600px) {
+  .docs-example__modes {
+    grid-template-columns: 1fr;
+  }
+}
+
+.docs-example__preview--dark,
+.docs-example__preview--light {
+  position: relative;
+  padding-top: calc(var(--spacing-lg) + 24px);
+}
+
+.docs-example__mode-label {
+  position: absolute;
+  top: var(--spacing-sm);
+  left: var(--spacing-sm);
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: var(--font-weight-medium);
+}
+
+.docs-example__toggle {
+  margin-top: var(--spacing-sm);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  background: none;
+  border: 1px solid color-mix(in srgb, var(--text-secondary) 30%, transparent);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.docs-example__toggle:hover {
+  color: var(--text-primary);
+  border-color: var(--text-secondary);
+}
+
+.docs-example__code {
+  margin-top: var(--spacing-sm);
+  padding: var(--spacing-md);
+  background-color: #1a1a2e;
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+  color: #e0e0e0;
+}
+
+.docs-example__code code {
+  white-space: pre;
+}

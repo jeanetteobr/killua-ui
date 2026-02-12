@@ -1,0 +1,23 @@
+/* Docs Layout */
+
+.docs-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.docs-content {
+  flex: 1;
+  padding: var(--spacing-xl);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .docs-layout {
+    flex-direction: column;
+  }
+  
+  .docs-content {
+    padding: var(--spacing-lg);
+  }
+}

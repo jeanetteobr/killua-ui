@@ -1,0 +1,77 @@
+/* Docs Page Styles */
+
+.docs-page {
+  max-width: 100%;
+}
+
+.docs-page__intro {
+  font-size: var(--font-size-lg);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+}
+
+.docs-page__section {
+  margin-bottom: var(--spacing-xl);
+}
+
+.docs-page__section p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-top: var(--spacing-sm);
+}
+
+.docs-page__code {
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-md);
+  background-color: #1a1a2e;
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+  color: #e0e0e0;
+}
+
+.docs-page__code code {
+  white-space: pre;
+}
+
+.docs-page__list {
+  margin-top: var(--spacing-md);
+  padding-left: var(--spacing-lg);
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.docs-page__list li {
+  margin-bottom: var(--spacing-xs);
+}
+
+.docs-page__list strong {
+  color: var(--text-primary);
+}
+
+/* Component Description */
+.docs-page__description {
+  font-size: var(--font-size-md);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-xl);
+}
+
+/* Import section */
+.docs-page__import {
+  margin-bottom: var(--spacing-xl);
+}
+
+.docs-page__import-label {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--spacing-xs);
+  font-weight: var(--font-weight-medium);
+}
