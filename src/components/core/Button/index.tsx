@@ -1,24 +1,15 @@
-import { forwardRef } from "react";
-import { ButtonProps } from "./Button.types";
+import React, { forwardRef } from "react";
+import { ButtonProps, ButtonVariant } from "./Button.types";
 import { colors } from "@/tokens/colors";
-import './Button.css';
+import { isLightColor } from "@/utils/colorContrast";
 import { useTheme } from "@/theme/useTheme";
-
-// Helper to check if a color is light
-function isLightColor(hex: string): boolean {
-  hex = hex.replace('#', '');
-  if (hex.length === 3) hex = hex.split('').map(x => x + x).join('');
-  const r = parseInt(hex.substr(0,2), 16);
-  const g = parseInt(hex.substr(2,2), 16);
-  const b = parseInt(hex.substr(4,2), 16);
-  return (r * 299 + g * 587 + b * 114) / 1000 > 128;
-}
+import './Button.css';
 
 export interface ButtonCustomProps extends ButtonProps {
   bgColor?: string; // Accepts a custom background color (hex)
 }
 
-const variantToColor = (theme: "dark" | "light") => ({
+const variantToColor = (theme: "dark" | "light"): Record<ButtonVariant, string> => ({
   primary: theme === "light" ? colors.light.primary : colors.primary,
   secondary: 'var(--color-secondary)', // Always use the CSS variable for gray
   ghost: 'transparent',
@@ -29,16 +20,20 @@ const variantToColor = (theme: "dark" | "light") => ({
   link: theme === "light" ? colors.light.link : colors.link,
 });
 
-export const Button = forwardRef<HTMLButtonElement, ButtonCustomProps>(({
-  children,
-  variant = "primary",
-  disabled = false,
-  loading = false,
-  fullWidth = false,
-  className,
-  bgColor,
-  ...props
-}, ref) => {
+export const Button = forwardRef<HTMLButtonElement, ButtonCustomProps>(
+  (
+    {
+      children,
+      variant = "primary" as ButtonVariant,
+      disabled = false,
+      loading = false,
+      fullWidth = false,
+      className,
+      bgColor,
+      ...props
+    },
+    ref
+  ) => {
   const { resolvedTheme } = useTheme();
   const theme = resolvedTheme || "dark";
   const classes = [

@@ -1,3 +1,5 @@
+import type { ButtonHTMLAttributes, ReactNode } from "react";
+
 export type ButtonVariant =
   | "primary"
   | "secondary"
@@ -11,11 +13,11 @@ export type ButtonVariant =
 /**
  * Props for the Button component
  * @interface ButtonProps
- * @extends {React.ButtonHTMLAttributes<HTMLButtonElement>}
+ * @extends {ButtonHTMLAttributes<HTMLButtonElement>}
  */
-export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** The content to be rendered inside the button */
-  children: React.ReactNode;
+  children: ReactNode;
   /** The visual style variant of the button */
   variant?: ButtonVariant;
   /** Whether the button is disabled */

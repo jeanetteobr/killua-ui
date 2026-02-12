@@ -43,6 +43,7 @@ export const ColorTokens: React.FC = () => {
   // 🌒 Default (dark) theme values from root
   const defaultTheme: FlatColorMap[] = [
     { name: "primary", hex: colors.primary },
+    { name: "secondary", hex: colors.secondary },
     { name: "link", hex: colors.link },
     { name: "info", hex: colors.info },
     { name: "success", hex: colors.success },
@@ -52,12 +53,15 @@ export const ColorTokens: React.FC = () => {
     { name: "background.surface", hex: colors.background.surface },
     { name: "text.primary", hex: colors.text.primary },
     { name: "text.secondary", hex: colors.text.secondary },
-    { name: "text.button", hex: colors.text.button },
+    { name: "text.onSolid", hex: colors.text.onSolid },
+    { name: "text.onLight", hex: colors.text.onLight },
+    { name: "text.onDark", hex: colors.text.onDark },
   ];
 
   // ☀️ Light theme overrides
   const lightTheme: FlatColorMap[] = [
     { name: "light.primary", hex: colors.light.primary },
+    { name: "light.secondary", hex: colors.light.secondary },
     { name: "light.link", hex: colors.light.link },
     { name: "light.info", hex: colors.light.info },
     { name: "light.success", hex: colors.light.success },
@@ -67,7 +71,9 @@ export const ColorTokens: React.FC = () => {
     { name: "light.background.surface", hex: colors.light.background.surface },
     { name: "light.text.primary", hex: colors.light.text.primary },
     { name: "light.text.secondary", hex: colors.light.text.secondary },
-    { name: "light.text.button", hex: colors.light.text.button },
+    { name: "light.text.onSolid", hex: colors.light.text.onSolid },
+    { name: "light.text.onLight", hex: colors.light.text.onLight },
+    { name: "light.text.onDark", hex: colors.light.text.onDark },
   ];
 
   return (

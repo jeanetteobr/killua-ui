@@ -1,16 +1,45 @@
 /**
+ * Normalizes a hex color to 6-character format (without #)
+ * @param hex - The hex color string (e.g. "#FF0000" or "#F00")
+ * @returns The normalized 6-character hex string without #
+ */
+const normalizeHex = (hex: string): string => {
+  hex = hex.replace('#', '');
+  if (hex.length === 3) {
+    hex = hex.split('').map(x => x + x).join('');
+  }
+  return hex;
+};
+
+/**
  * Converts a hex color to RGB
- * @param hex - The hex color string (e.g. "#FF0000")
+ * @param hex - The hex color string (e.g. "#FF0000" or "#F00")
  * @returns An object with r, g, b values
  */
 const hexToRgb = (hex: string): { r: number; g: number; b: number } => {
-  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  const normalized = normalizeHex(hex);
+  const result = /^([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(normalized);
   if (!result) throw new Error('Invalid hex color');
   return {
     r: parseInt(result[1], 16),
     g: parseInt(result[2], 16),
     b: parseInt(result[3], 16),
   };
+};
+
+/**
+ * Determines if a color is perceptually light (for choosing contrasting text)
+ * Uses the YIQ formula for perceived brightness
+ * @param hex - The hex color string (e.g. "#FF0000" or "#F00")
+ * @returns True if the color is light, false if dark
+ */
+export const isLightColor = (hex: string): boolean => {
+  const normalized = normalizeHex(hex);
+  const r = parseInt(normalized.substring(0, 2), 16);
+  const g = parseInt(normalized.substring(2, 4), 16);
+  const b = parseInt(normalized.substring(4, 6), 16);
+  // YIQ formula for perceived brightness
+  return (r * 299 + g * 587 + b * 114) / 1000 > 128;
 };
 
 /**

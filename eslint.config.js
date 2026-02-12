@@ -34,8 +34,14 @@ export default [
       'react-refresh': reactRefresh,
     },
     rules: {
-      ...tseslint.rules,
+      ...tseslint.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
+      // Disable base rule in favor of TypeScript version
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': ['warn', { 
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
+      }],
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },
