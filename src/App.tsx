@@ -6,6 +6,7 @@ import {
   GettingStarted, 
   ButtonDocs, 
   HeadingDocs,
+  TextDocs,
   TokensDocs,
   ComingSoon 
 } from "@/docs/pages";
@@ -26,6 +27,7 @@ function App() {
             {/* Component docs */}
             <Route path="components/button" element={<ButtonDocs />} />
             <Route path="components/heading" element={<HeadingDocs />} />
+            <Route path="components/text" element={<TextDocs />} />
             
             {/* Tokens docs */}
             <Route path="tokens" element={<TokensDocs />} />
