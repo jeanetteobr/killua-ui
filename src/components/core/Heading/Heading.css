@@ -1,0 +1,56 @@
+/* Heading Component Styles */
+
+.kui-heading {
+  margin: 0;
+  font-family: 'Satoshi', sans-serif;
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+/* Sizes */
+.kui-heading--2xl {
+  font-size: var(--font-size-2xl);
+  letter-spacing: -0.02em;
+}
+
+.kui-heading--xl {
+  font-size: var(--font-size-xl);
+  letter-spacing: -0.01em;
+}
+
+.kui-heading--lg {
+  font-size: var(--font-size-lg);
+}
+
+.kui-heading--md {
+  font-size: var(--font-size-md);
+}
+
+.kui-heading--sm {
+  font-size: var(--font-size-sm);
+}
+
+.kui-heading--xs {
+  font-size: var(--font-size-xs);
+}
+
+/* Alignment */
+.kui-heading--left {
+  text-align: left;
+}
+
+.kui-heading--center {
+  text-align: center;
+}
+
+.kui-heading--right {
+  text-align: right;
+}
+
+/* Truncate */
+.kui-heading--truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

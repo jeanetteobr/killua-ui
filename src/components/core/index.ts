@@ -5,3 +5,6 @@ export type { ButtonCustomProps } from './Button';
 
 export { ColorSwatch } from './ColorSwatch';
 export type { SwatchProps } from './ColorSwatch/ColorSwatch.types';
+
+export { Heading } from './Heading';
+export type { HeadingProps, HeadingLevel, HeadingSize } from './Heading/Heading.types';
