@@ -119,8 +119,8 @@ export const ButtonDocs: React.FC = () => {
           <li>Uses semantic <code>&lt;button&gt;</code> element</li>
           <li>Supports <code>aria-disabled</code> and <code>aria-busy</code> for loading states</li>
           <li>Keyboard accessible with visible focus indicators</li>
-          <li>Link variant uses <code>role="link"</code> for screen readers</li>
-          <li>Loading state announces "(Loading...)" to assistive technology</li>
+          <li>Link variant uses <code>role=&quot;link&quot;</code> for screen readers</li>
+          <li>Loading state announces &quot;(Loading...)&quot; to assistive technology</li>
         </ul>
       </section>
     </article>

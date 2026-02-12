@@ -120,7 +120,7 @@ export const HeadingDocs: React.FC = () => {
           <li>Uses semantic heading elements (h1-h6)</li>
           <li>Maintain proper heading hierarchy for screen readers</li>
           <li>Only one h1 per page for optimal document structure</li>
-          <li>Don't skip heading levels (e.g., h1 → h3)</li>
+          <li>Do not skip heading levels (e.g., h1 → h3)</li>
         </ul>
       </section>
     </article>
