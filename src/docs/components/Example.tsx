@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ThemeContext } from "@/theme/ThemeContext";
 import "./Example.css";
 
 interface ExampleProps {
@@ -13,6 +14,26 @@ interface ExampleProps {
   /** The live component example */
   children: React.ReactNode;
 }
+
+// Fixed theme provider that overrides the global theme context
+const FixedThemeProvider: React.FC<{
+  theme: "dark" | "light";
+  children: React.ReactNode;
+}> = ({ theme, children }) => {
+  // Provide a fixed theme context that ignores the global theme
+  const fixedContext = {
+    theme: theme,
+    resolvedTheme: theme,
+    setTheme: () => {},
+    toggleTheme: () => {},
+  };
+  
+  return (
+    <ThemeContext.Provider value={fixedContext}>
+      {children}
+    </ThemeContext.Provider>
+  );
+};
 
 // Dark theme CSS variables - inline styles for highest specificity
 const darkThemeVars: React.CSSProperties = {
@@ -67,14 +88,18 @@ export const Example: React.FC<ExampleProps> = ({
             style={darkThemeVars}
           >
             <span className="docs-example__mode-label">Dark</span>
-            {children}
+            <FixedThemeProvider theme="dark">
+              {children}
+            </FixedThemeProvider>
           </div>
           <div 
             className="docs-example__preview docs-example__preview--light"
             style={lightThemeVars}
           >
             <span className="docs-example__mode-label">Light</span>
-            {children}
+            <FixedThemeProvider theme="light">
+              {children}
+            </FixedThemeProvider>
           </div>
         </div>
       ) : (
