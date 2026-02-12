@@ -7,12 +7,12 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
+    "lint": "eslint . --config config/.eslintrc.json --ignore-path config/.eslintignore",
     "preview": "vite preview",
     "generate:component": "node scripts/generateComponent.mjs",
     "generate:page": "node scripts/generatePage.mjs",
-    "test": "jest",
-    "test:watch": "jest --watch"
+    "test": "jest --config config/jest.config.js",
+    "test:watch": "jest --config config/jest.config.js --watch"
   },
   "dependencies": {
     "react": "^19.0.0",
@@ -32,6 +32,7 @@
     "@vitejs/plugin-react": "^4.3.4",
     "eslint": "^8.57.0",
     "eslint-plugin-jest": "^28.11.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",

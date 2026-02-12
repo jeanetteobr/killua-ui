@@ -26,7 +26,7 @@ export const ComingSoon: React.FC = () => {
       }}>
         <span style={{ fontSize: "3rem" }}>🚧</span>
         <p style={{ marginTop: "var(--spacing-md)" }}>
-          We're working on building and documenting the <strong>{componentName}</strong> component.
+          We&apos;re working on building and documenting the <strong>{componentName}</strong> component.
         </p>
       </div>
     </article>

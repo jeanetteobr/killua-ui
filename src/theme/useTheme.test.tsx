@@ -23,7 +23,7 @@ Object.defineProperty(window, 'localStorage', { value: localStorageMock });
 
 // Mock matchMedia
 const mockMatchMedia = (matches: boolean) => {
-  const listeners: ((e: MediaQueryListEvent) => void)[] = [];
+  const listeners: ((_e: MediaQueryListEvent) => void)[] = [];
   return jest.fn().mockImplementation(() => ({
     matches,
     media: '(prefers-color-scheme: dark)',

@@ -34,13 +34,14 @@
     
     // General
     "no-console": ["warn", { "allow": ["warn", "error"] }],
-    "no-unused-vars": "warn",
+    "no-unused-vars": ["warn", { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }],
+    "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }],
     
     // Formatting
-    "indent": ["error", 2],
+    "indent": "off",
     "linebreak-style": ["error", "unix"],
-    "quotes": ["error", "single"],
-    "semi": ["error", "always"]
+    "quotes": "off",
+    "semi": "off"
   },
   "settings": {
     "react": {

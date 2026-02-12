@@ -9,7 +9,8 @@ import { DocsLayout } from "@/docs/layouts";
 import { 
   GettingStarted, 
   ButtonDocs, 
-  HeadingDocs, 
+  HeadingDocs,
+  TokensDocs,
   ComingSoon 
 } from "@/docs/pages";
 
@@ -62,9 +63,11 @@ function App() {
             <Route path="components/button" element={<ButtonDocs />} />
             <Route path="components/heading" element={<HeadingDocs />} />
             
+            {/* Tokens docs */}
+            <Route path="tokens" element={<TokensDocs />} />
+            
             {/* Coming soon pages for components not yet documented */}
             <Route path="components/:component" element={<ComingSoon />} />
-            <Route path="tokens" element={<ComingSoon />} />
           </Route>
         </Routes>
       </ThemeProvider>
