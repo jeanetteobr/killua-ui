@@ -65,7 +65,7 @@ export const colors: Colors = {
     link: "#3FC2E6",
     info: "#67E8F9",
     success: "#22C55E",
-    warning: "#FBBF24",
+    warning: "#D97706",
     danger: "#BE185D",
 
     background: {
